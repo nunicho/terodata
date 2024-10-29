@@ -1,0 +1,19 @@
+.comentarios-container {
+  display: grid;
+  grid-template-columns: 1fr; /* Una columna en dispositivos pequeños */
+  gap: 1rem; /* Espacio opcional entre los cuadros */
+}
+
+/* Pantallas medianas (tabletas, etc.): dos columnas */
+@media (min-width: 768px) {
+  .comentarios-container {
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+  }
+}
+
+/* Pantallas grandes (laptops, etc.): tres columnas */
+@media (min-width: 992px) {
+  .comentarios-container {
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+  }
+}
