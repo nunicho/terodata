@@ -1,0 +1,232 @@
+{
+  "comidas": [
+    {
+      "id": 1,
+      "nombre": "Hamburguesa",
+      "tipo": "hamburguesa",
+      "ingredientes": [
+        "carne de res",
+        "pan",
+        "lechuga",
+        "tomate",
+        "mayonesa"
+      ],
+      "calorías": 250,
+      "grasas": 10,
+      "grasas_saturadas": 4,
+      "carbohidratos": 30,
+      "azucares": 5,
+      "proteinas": 15,
+      "sodio": 500,
+      "porcion": 150
+    },
+    {
+      "id": 2,
+      "nombre": "Papas Fritas",
+      "tipo": "acompañamiento",
+      "ingredientes": [
+        "papas",
+        "aceite",
+        "sal"
+      ],
+      "calorías": 365,
+      "grasas": 17,
+      "grasas_saturadas": 2,
+      "carbohidratos": 58,
+      "azucares": 0,
+      "proteinas": 4,
+      "sodio": 200,
+      "porcion": 100
+    },
+    {
+      "id": 3,
+      "nombre": "Pizza",
+      "tipo": "pizza",
+      "ingredientes": [
+        "masa",
+        "salsa de tomate",
+        "queso mozzarella",
+        "pepperoni"
+      ],
+      "calorías": 285,
+      "grasas": 10,
+      "grasas_saturadas": 5,
+      "carbohidratos": 36,
+      "azucares": 4,
+      "proteinas": 12,
+      "sodio": 640,
+      "porcion": 100
+    },
+    {
+      "id": 4,
+      "nombre": "Hot Dog",
+      "tipo": "hot dog",
+      "ingredientes": [
+        "salchicha",
+        "pan",
+        "mostaza",
+        "ketchup"
+      ],
+      "calorías": 150,
+      "grasas": 8,
+      "grasas_saturadas": 3,
+      "carbohidratos": 18,
+      "azucares": 2,
+      "proteinas": 6,
+      "sodio": 700,
+      "porcion": 120
+    },
+    {
+      "id": 5,
+      "nombre": "Tacos",
+      "tipo": "taco",
+      "ingredientes": [
+        "tortilla",
+        "carne",
+        "frijoles",
+        "verduras",
+        "salsa"
+      ],
+      "calorías": 200,
+      "grasas": 8,
+      "grasas_saturadas": 3,
+      "carbohidratos": 26,
+      "azucares": 1,
+      "proteinas": 10,
+      "sodio": 400,
+      "porcion": 150
+    },
+    {
+      "id": 6,
+      "nombre": "Kebab",
+      "tipo": "kebab",
+      "ingredientes": [
+        "carne asada",
+        "pan pita",
+        "ensalada",
+        "salsas"
+      ],
+      "calorías": 300,
+      "grasas": 12,
+      "grasas_saturadas": 5,
+      "carbohidratos": 36,
+      "azucares": 3,
+      "proteinas": 20,
+      "sodio": 600,
+      "porcion": 200
+    },
+    {
+      "id": 7,
+      "nombre": "Nuggets de Pollo",
+      "tipo": "nuggets",
+      "ingredientes": [
+        "pollo",
+        "pan rallado",
+        "aceite"
+      ],
+      "calorías": 270,
+      "grasas": 16,
+      "grasas_saturadas": 3,
+      "carbohidratos": 20,
+      "azucares": 0,
+      "proteinas": 13,
+      "sodio": 500,
+      "porcion": 100
+    },
+    {
+      "id": 8,
+      "nombre": "Donuts",
+      "tipo": "dulce",
+      "ingredientes": [
+        "harina",
+        "azúcar",
+        "huevos",
+        "leche",
+        "glaseado"
+      ],
+      "calorías": 190,
+      "grasas": 10,
+      "grasas_saturadas": 5,
+      "carbohidratos": 22,
+      "azucares": 12,
+      "proteinas": 2,
+      "sodio": 320,
+      "porcion": 50
+    },
+    {
+      "id": 9,
+      "nombre": "Sushi",
+      "tipo": "snack",
+      "ingredientes": [
+        "arroz",
+        "pescado",
+        "algas",
+        "vegetales"
+      ],
+      "calorías": 150,
+      "grasas": 4,
+      "grasas_saturadas": 1,
+      "carbohidratos": 28,
+      "azucares": 1,
+      "proteinas": 8,
+      "sodio": 300,
+      "porcion": 100
+    },
+    {
+      "id": 10,
+      "nombre": "Poutine",
+      "tipo": "plato",
+      "ingredientes": [
+        "papas fritas",
+        "queso en grano",
+        "salsa gravy"
+      ],
+      "calorías": 740,
+      "grasas": 45,
+      "grasas_saturadas": 25,
+      "carbohidratos": 75,
+      "azucares": 2,
+      "proteinas": 15,
+      "sodio": 1600,
+      "porcion": 300
+    },
+    {
+      "id": 11,
+      "nombre": "Lomito",
+      "tipo": "sándwich",
+      "ingredientes": [
+        "carne de res",
+        "pan",
+        "lechuga",
+        "tomate",
+        "mayonesa"
+      ],
+      "calorías": 400,
+      "grasas": 18,
+      "grasas_saturadas": 7,
+      "carbohidratos": 30,
+      "azucares": 2,
+      "proteinas": 25,
+      "sodio": 800,
+      "porcion": 200
+    },
+    {
+      "id": 12,
+      "nombre": "Choripán",
+      "tipo": "sándwich",
+      "ingredientes": [
+        "chorizo",
+        "pan",
+        "chimichurri"
+      ],
+      "calorías": 300,
+      "grasas": 20,
+      "grasas_saturadas": 8,
+      "carbohidratos": 30,
+      "azucares": 1,
+      "proteinas": 12,
+      "sodio": 700,
+      "porcion": 150
+    }
+  ]
+}

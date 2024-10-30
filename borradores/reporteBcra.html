@@ -1,0 +1,82 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Reporte</title>
+    <style>
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+            text-align: left;
+        }
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Reporte de Variables del BCRA</h2>
+    <table id="bcraTable">
+        <thead>
+            <tr>
+                <th>ID Variable</th>
+                <th>Descripción</th>
+                <th>Fecha</th>
+                <th>Valor</th>
+            </tr>
+        </thead>
+        <tbody>
+            <!-- Los datos se insertarán aquí -->
+        </tbody>
+    </table>
+
+    <!-- Scripts para obtener datos y llenar la tabla -->
+    <script src="../scripts/datosBcra.js"></script>
+    <script>
+        // Simulando la obtención de datos
+        const data = {
+            "status": 200,
+            "results": [
+                {
+                    "idVariable": 1,
+                    "descripcion": "Reservas Internacionales del BCRA (en millones de dólares - cifras provisorias sujetas a cambio de valuación)",
+                    "fecha": "2024-10-24",
+                    "valor": 29057.00
+                },
+                {
+                    "idVariable": 4,
+                    "descripcion": "Tipo de Cambio Minorista ($ por USD) Comunicación B 9791 - Promedio vendedor",
+                    "fecha": "2024-10-28",
+                    "valor": 1018.83
+                },
+                // Agrega aquí los demás datos que necesitas
+            ]
+        };
+
+        // Referencia a la tabla
+        const tableBody = document.querySelector("#bcraTable tbody");
+
+        // Función para llenar la tabla con los datos
+        function populateTable(data) {
+            data.results.forEach(item => {
+                const row = document.createElement("tr");
+                row.innerHTML = `
+                    <td>${item.idVariable}</td>
+                    <td>${item.descripcion}</td>
+                    <td>${item.fecha}</td>
+                    <td>${item.valor.toFixed(2)}</td>
+                `;
+                tableBody.appendChild(row);
+            });
+        }
+
+        // Llamar a la función para llenar la tabla
+        populateTable(data);
+    </script>
+</body>
+</html>

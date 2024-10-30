@@ -1,0 +1,441 @@
+{
+  "provincias": [
+    { 
+      "id":1,
+      "nombre": "Buenos Aires",
+      "poblacion": 17541141,
+      "superficie_km2": 307571,
+      "pbi_millones_usd": 102000,
+      "densidad_hab_km2": 57,
+      "idh": 0.83,
+      "tasa_desempleo": 8.5,
+      "sectores_economicos": [
+        "Agricultura",
+        "Industria",
+        "Servicios"
+      ],
+      "esperanza_vida": 77.5,
+      "indice_pobreza": 25.1,
+      "cantidad_municipios": 135,
+      "clima": "Templado",
+      "año_fundacion": 1820
+    },
+    {
+      "id": 2,
+      "nombre": "Catamarca",
+      "poblacion": 429556,
+      "superficie_km2": 102602,
+      "pbi_millones_usd": 1900,
+      "densidad_hab_km2": 4.2,
+      "idh": 0.725,
+      "tasa_desempleo": 7.2,
+      "sectores_economicos": [
+        "Minería",
+        "Agricultura"
+      ],
+      "esperanza_vida": 75.8,
+      "indice_pobreza": 27.4,
+      "cantidad_municipios": 16,
+      "clima": "Semiárido",
+      "año_fundacion": 1886
+    },
+    {
+      "id": 3,
+      "nombre": "Chaco",
+      "poblacion": 1204541,
+      "superficie_km2": 99633,
+      "pbi_millones_usd": 4100,
+      "densidad_hab_km2": 12.1,
+      "idh": 0.733,
+      "tasa_desempleo": 9.1,
+      "sectores_economicos": [
+        "Agricultura",
+        "Ganadería"
+      ],
+      "esperanza_vida": 75.3,
+      "indice_pobreza": 32.6,
+      "cantidad_municipios": 69,
+      "clima": "Tropical",
+      "año_fundacion": 1951
+    },
+    {
+      "id": 4,
+      "nombre": "Chubut",
+      "poblacion": 618994,
+      "superficie_km2": 224686,
+      "pbi_millones_usd": 8100,
+      "densidad_hab_km2": 2.8,
+      "idh": 0.775,
+      "tasa_desempleo": 5.4,
+      "sectores_economicos": [
+        "Petróleo",
+        "Pesca"
+      ],
+      "esperanza_vida": 76.2,
+      "indice_pobreza": 21.5,
+      "cantidad_municipios": 15,
+      "clima": "Frío",
+      "año_fundacion": 1955
+    },
+    {
+      "id": 5,
+      "nombre": "Córdoba",
+      "poblacion": 3760450,
+      "superficie_km2": 165321,
+      "pbi_millones_usd": 25000,
+      "densidad_hab_km2": 22.7,
+      "idh": 0.82,
+      "tasa_desempleo": 6.9,
+      "sectores_economicos": [
+        "Agricultura",
+        "Industria",
+        "Servicios"
+      ],
+      "esperanza_vida": 77.1,
+      "indice_pobreza": 26.3,
+      "cantidad_municipios": 427,
+      "clima": "Templado",
+      "año_fundacion": 1573
+    },
+    {
+      "id": 6,
+      "nombre": "Corrientes",
+      "poblacion": 1239514,
+      "superficie_km2": 88199,
+      "pbi_millones_usd": 5400,
+      "densidad_hab_km2": 14.1,
+      "idh": 0.7,
+      "tasa_desempleo": 7.8,
+      "sectores_economicos": [
+        "Agricultura",
+        "Ganadería"
+      ],
+      "esperanza_vida": 74.9,
+      "indice_pobreza": 29,
+      "cantidad_municipios": 70,
+      "clima": "Tropical",
+      "año_fundacion": 1814
+    },
+    {
+      "id": 7,
+      "nombre": "Entre Ríos",
+      "poblacion": 1385968,
+      "superficie_km2": 78781,
+      "pbi_millones_usd": 7100,
+      "densidad_hab_km2": 17.6,
+      "idh": 0.785,
+      "tasa_desempleo": 6.5,
+      "sectores_economicos": [
+        "Agricultura",
+        "Turismo"
+      ],
+      "esperanza_vida": 76.5,
+      "indice_pobreza": 25.8,
+      "cantidad_municipios": 17,
+      "clima": "Húmedo",
+      "año_fundacion": 1820
+    },
+    {
+      "id": 8,
+      "nombre": "Formosa",
+      "poblacion": 606041,
+      "superficie_km2": 72066,
+      "pbi_millones_usd": 2200,
+      "densidad_hab_km2": 8.4,
+      "idh": 0.675,
+      "tasa_desempleo": 6.7,
+      "sectores_economicos": [
+        "Agricultura",
+        "Ganadería"
+      ],
+      "esperanza_vida": 73.2,
+      "indice_pobreza": 33.5,
+      "cantidad_municipios": 10,
+      "clima": "Tropical",
+      "año_fundacion": 1955
+    },
+    {
+      "id": 9,
+      "nombre": "Jujuy",
+      "poblacion": 797955,
+      "superficie_km2": 53219,
+      "pbi_millones_usd": 3200,
+      "densidad_hab_km2": 15,
+      "idh": 0.75,
+      "tasa_desempleo": 6.8,
+      "sectores_economicos": [
+        "Minería",
+        "Agricultura"
+      ],
+      "esperanza_vida": 75.6,
+      "indice_pobreza": 29.2,
+      "cantidad_municipios": 16,
+      "clima": "Frío",
+      "año_fundacion": 1834
+    },
+    {
+      "id": 10,
+      "nombre": "La Pampa",
+      "poblacion": 366022,
+      "superficie_km2": 143440,
+      "pbi_millones_usd": 3400,
+      "densidad_hab_km2": 2.5,
+      "idh": 0.78,
+      "tasa_desempleo": 4.8,
+      "sectores_economicos": [
+        "Ganadería",
+        "Agricultura"
+      ],
+      "esperanza_vida": 78,
+      "indice_pobreza": 24.6,
+      "cantidad_municipios": 22,
+      "clima": "Seco",
+      "año_fundacion": 1951
+    },
+    {
+      "id": 11,
+      "nombre": "La Rioja",
+      "poblacion": 393531,
+      "superficie_km2": 89680,
+      "pbi_millones_usd": 1800,
+      "densidad_hab_km2": 4.4,
+      "idh": 0.71,
+      "tasa_desempleo": 7.5,
+      "sectores_economicos": [
+        "Minería",
+        "Agricultura"
+      ],
+      "esperanza_vida": 74,
+      "indice_pobreza": 28.1,
+      "cantidad_municipios": 18,
+      "clima": "Semiárido",
+      "año_fundacion": 1821
+    },
+    {
+      "id": 12,
+      "nombre": "Mendoza",
+      "poblacion": 2060776,
+      "superficie_km2": 148827,
+      "pbi_millones_usd": 11000,
+      "densidad_hab_km2": 13.8,
+      "idh": 0.815,
+      "tasa_desempleo": 5.9,
+      "sectores_economicos": [
+        "Viticultura",
+        "Turismo"
+      ],
+      "esperanza_vida": 77.7,
+      "indice_pobreza": 23.4,
+      "cantidad_municipios": 18,
+      "clima": "Semiárido",
+      "año_fundacion": 1561
+    },
+    {
+      "id": 13,
+      "nombre": "Misiones",
+      "poblacion": 1262042,
+      "superficie_km2": 29801,
+      "pbi_millones_usd": 5600,
+      "densidad_hab_km2": 42.4,
+      "idh": 0.735,
+      "tasa_desempleo": 8.4,
+      "sectores_economicos": [
+        "Agricultura",
+        "Turismo"
+      ],
+      "esperanza_vida": 75.5,
+      "indice_pobreza": 29.9,
+      "cantidad_municipios": 76,
+      "clima": "Húmedo",
+      "año_fundacion": 1901
+    },
+    {
+      "id": 14,
+      "nombre": "Neuquén",
+      "poblacion": 703703,
+      "superficie_km2": 94140,
+      "pbi_millones_usd": 8000,
+      "densidad_hab_km2": 7.5,
+      "idh": 0.79,
+      "tasa_desempleo": 5.3,
+      "sectores_economicos": [
+        "Petróleo",
+        "Gas",
+        "Turismo"
+      ],
+      "esperanza_vida": 76.4,
+      "indice_pobreza": 20.2,
+      "cantidad_municipios": 16,
+      "clima": "Frío",
+      "año_fundacion": 1955
+    },
+    {
+      "id": 15,
+      "nombre": "Río Negro",
+      "poblacion": 703964,
+      "superficie_km2": 203013,
+      "pbi_millones_usd": 7500,
+      "densidad_hab_km2": 3.5,
+      "idh": 0.8,
+      "tasa_desempleo": 5.7,
+      "sectores_economicos": [
+        "Fruticultura",
+        "Turismo"
+      ],
+      "esperanza_vida": 76.7,
+      "indice_pobreza": 22,
+      "cantidad_municipios": 38,
+      "clima": "Templado",
+      "año_fundacion": 1955
+    },
+    {
+      "id": 16,
+      "nombre": "Salta",
+      "poblacion": 1162704,
+      "superficie_km2": 155488,
+      "pbi_millones_usd": 4600,
+      "densidad_hab_km2": 7.5,
+      "idh": 0.74,
+      "tasa_desempleo": 6.3,
+      "sectores_economicos": [
+        "Agricultura",
+        "Minería"
+      ],
+      "esperanza_vida": 74.5,
+      "indice_pobreza": 32.1,
+      "cantidad_municipios": 60,
+      "clima": "Tropical",
+      "año_fundacion": 1582
+    },
+    {
+      "id": 17,
+      "nombre": "San Juan",
+      "poblacion": 780750,
+      "superficie_km2": 89.651,
+      "pbi_millones_usd": 3500,
+      "densidad_hab_km2": 8.7,
+      "idh": 0.795,
+      "tasa_desempleo": 5.6,
+      "sectores_economicos": [
+        "Viticultura",
+        "Minería"
+      ],
+      "esperanza_vida": 76.9,
+      "indice_pobreza": 26.1,
+      "cantidad_municipios": 19,
+      "clima": "Seco",
+      "año_fundacion": 1562
+    },
+    {
+      "id": 18,
+      "nombre": "San Luis",
+      "poblacion": 492387,
+      "superficie_km2": 76764,
+      "pbi_millones_usd": 2800,
+      "densidad_hab_km2": 6.4,
+      "idh": 0.76,
+      "tasa_desempleo": 5.1,
+      "sectores_economicos": [
+        "Agricultura",
+        "Turismo"
+      ],
+      "esperanza_vida": 76.3,
+      "indice_pobreza": 24.7,
+      "cantidad_municipios": 18,
+      "clima": "Seco",
+      "año_fundacion": 1834
+    },
+    {
+      "id": 19,
+      "nombre": "Santa Cruz",
+      "poblacion": 273964,
+      "superficie_km2": 243943,
+      "pbi_millones_usd": 4700,
+      "densidad_hab_km2": 1.1,
+      "idh": 0.81,
+      "tasa_desempleo": 4.9,
+      "sectores_economicos": [
+        "Minería",
+        "Petróleo"
+      ],
+      "esperanza_vida": 77,
+      "indice_pobreza": 19.9,
+      "cantidad_municipios": 7,
+      "clima": "Frío",
+      "año_fundacion": 1955
+    },
+    {
+      "id": 20,
+      "nombre": "Santa Fe",
+      "poblacion": 3475903,
+      "superficie_km2": 133007,
+      "pbi_millones_usd": 18000,
+      "densidad_hab_km2": 26.1,
+      "idh": 0.835,
+      "tasa_desempleo": 5.4,
+      "sectores_economicos": [
+        "Agricultura",
+        "Industria"
+      ],
+      "esperanza_vida": 78.4,
+      "indice_pobreza": 23.6,
+      "cantidad_municipios": 365,
+      "clima": "Húmedo",
+      "año_fundacion": 1815
+    },
+    {"id": 21,
+      "nombre": "Santiago del Estero",
+      "poblacion": 1048286,
+      "superficie_km2": 136351,
+      "pbi_millones_usd": 3900,
+      "densidad_hab_km2": 7.7,
+      "idh": 0.705,
+      "tasa_desempleo": 7.6,
+      "sectores_economicos": [
+        "Agricultura",
+        "Ganadería"
+      ],
+      "esperanza_vida": 74.1,
+      "indice_pobreza": 31.8,
+      "cantidad_municipios": 27,
+      "clima": "Semiárido",
+      "año_fundacion": 1820
+    },
+    {"id": 22,
+      "nombre": "Tierra del Fuego",
+      "poblacion": 175437,
+      "superficie_km2": 210000,
+      "pbi_millones_usd": 2100,
+      "densidad_hab_km2": 0.8,
+      "idh": 0.85,
+      "tasa_desempleo": 4.2,
+      "sectores_economicos": [
+        "Petróleo",
+        "Turismo"
+      ],
+      "esperanza_vida": 78.1,
+      "indice_pobreza": 14.6,
+      "cantidad_municipios": 7,
+      "clima": "Frío",
+      "año_fundacion": 1991
+    },
+    {"id": 23,
+      "nombre": "Tucumán",
+      "poblacion": 1763687,
+      "superficie_km2": 22524,
+      "pbi_millones_usd": 4800,
+      "densidad_hab_km2": 78.2,
+      "idh": 0.72,
+      "tasa_desempleo": 7.1,
+      "sectores_economicos": [
+        "Agricultura",
+        "Industria"
+      ],
+      "esperanza_vida": 75.2,
+      "indice_pobreza": 30.4,
+      "cantidad_municipios": 17,
+      "clima": "Húmedo",
+      "año_fundacion": 1886
+    }
+  ]
+}
