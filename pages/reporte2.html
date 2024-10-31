@@ -1,19 +1,44 @@
 <!DOCTYPE html>
 <html lang="es">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Reporte de Nutrientes</title>
-</head>
-<body>
-    <h1>Reporte de Nutrientes</h1>
-    <p>La dieta de un adulto promedio debe contener ser de aproximadamente 2000 Kcal, 70g de grasas, 20g de grasas saturadas,
-        300 mg de carbohidrados, 90g de azúcares, 50g de protínas y 2300mg de sodio. Este indicador muestra, por cada alimento seleccionado, que porcentaje se está consumiendo de cada elemento se está 
-        consumiendo sobre la base de un día.
-</p>
-    <div id="botonesAlimentos"></div>
-    <canvas id="radarChart" width="400" height="400"></canvas>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+
+    <title>Reporte2</title>
+    <!-- Bootstrap CSS -->
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+    <link rel="stylesheet" href="../styles/reporte2.css" />
+  </head>
+  <body>
+    <div class="container mt-5">
+      <h1 class="text-center mb-4">Nutrientes por alimento</h1>
+      <p class="text-center mb-4">
+        La dieta de un adulto promedio debe consistir en aproximadamente 2000
+        Kcal, que incluyen 70 g de grasas, 20 g de grasas saturadas, 300 g de
+        carbohidratos, 90 g de azúcares, 50 g de proteínas y 2300 mg de sodio.
+        Este indicador muestra, para cada alimento seleccionado, el porcentaje
+        de cada elemento que se está consumiendo en relación con las
+        recomendaciones diarias.
+      </p>
+
+      <div class="row">
+        <div class="col-lg-8 col-md-12 mb-4">
+          <div class="text-center">
+            <canvas id="radarChart" width="400" height="400"></canvas>
+          </div>
+        </div>
+        <div class="col-lg-4 col-md-12">
+          <div class="text-center mb-4" id="botonesAlimentos">
+            <button id="limpiarGrafico" class="btn">Limpiar gráfico</button>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
     <script src="../scripts/reporte2.js"></script>
-</body>
+  </body>
 </html>
