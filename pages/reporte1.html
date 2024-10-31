@@ -7,7 +7,7 @@
       href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
       rel="stylesheet"
     />
-    <link rel="stylesheet" href="../styles/reporte2.css" />
+    <link rel="stylesheet" href="../styles/reporte1.css" />
     <title>Reporte2</title>
     <style></style>
   </head>
@@ -17,7 +17,6 @@
       <div id="buttons" class="mb-3"></div>
 
       <section class="row">
-        
         <div class="col-lg-6">
           <div class="chart-container" style="height: 400px">
             <canvas id="myChart" style="height: 100%; width: 100%"></canvas>
@@ -33,16 +32,26 @@
             <h6 class="text-center">PBI por Provincia</h6>
           </div>
         </div>
-        <div class="col-lg-6">
-  <div class="chart-container" style="height: 400px">
-    <canvas id="myPolarChart" style="height: 100%; width: 100%"></canvas>
-    <h6 class="text-center">Cantidad de Municipios por Provincia</h6>
-  </div>
-</div>
+        </section>
+         <section class="row">
+             <div class="col-lg-6">
+               <div class="chart-container" style="height: 400px">
+                 <canvas
+                   id="myPolarChart"
+                   style="height: 100%; width: 100%"
+                 ></canvas>
+                 <h6 class="text-center">Cantidad de Municipios por Provincia</h6>
+               </div>
+             </div>
+             <div class="col-lg-6">
+                 <div id="economic-sectors" ></div>
+              
+             </div>
+         </section>
       </section>
     </div>
 
     <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../scripts/reporte2.js"></script>
+    <script src="../scripts/reporte1.js"></script>
   </body>
 </html>

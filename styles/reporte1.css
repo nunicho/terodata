@@ -1,52 +1,43 @@
-css
-Copiar código
-* {
-    box-sizing: border-box;
-    margin: 0;
-    padding: 0;
-}
-
 body {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    background-color: #f4f4f9;
-    font-family: Arial, sans-serif;
-    padding: 20px;
+  font-family: Arial, sans-serif;
+  margin: 0;
+  padding: 20px;
+  background-color: #f4f4f4;
 }
 
-h1 {
-    margin-bottom: 20px;
-    font-size: 1.8em;
-    color: #333;
-    text-align: center;
+#buttons {
+  margin-bottom: 20px;
 }
 
-/* Contenedor para los gráficos */
-.charts-section {
-    display: grid;
-    gap: 20px;
-    width: 100%;
-    grid-template-columns: 1fr; /* Una columna en pantallas pequeñas */
+button {
+  margin: 5px;
+  padding: 10px 15px;
+  font-size: 16px;
+  border: none;
+  border-radius: 5px;
+  cursor: pointer;
+  background-color: #0056b3; /* Color de fondo normal */
+  color: white; /* Color de texto normal */
 }
 
-/* Configuración en pantallas grandes */
-@media (min-width: 1024px) {
-    .charts-section {
-        grid-template-columns: repeat(3, 1fr); /* Tres columnas iguales en pantallas grandes */
-    }
+/* Estilo para botones activos */
+button.active {
+  background-color: white; /* Color de fondo blanco para el botón activo */
+  color: #0056b3; /* Color de texto azul para mejor contraste */
+  border: 2px solid #004494; /* Un borde más oscuro para el botón activo */
 }
 
-.card {
-    background-color: #ffffff;
-    border-radius: 8px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    padding: 20px;
-    text-align: center;
-    width: 100%;
+button:hover {
+  background-color: #5a9bd4; 
 }
 
-canvas {
-    width: 100% !important; /* Asegura que el canvas ocupe todo el ancho de la card */
-    height: 400px !important; /* Ajusta la altura para una mejor visualización */
+.chart-container {
+  overflow-x: auto; /* Permite el scroll horizontal */
+  height: 400px; /* Define la altura del contenedor */
+  overflow-y: hidden; /* Evita el scroll vertical */
+}
+
+#myChart {
+  width: 1200px; /* Establece un ancho fijo mayor que el contenedor */
+  height: 100% !important; /* Asegura que la altura ocupe todo el contenedor */
 }
