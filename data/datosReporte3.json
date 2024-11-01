@@ -1,0 +1,144 @@
+{
+    "perros": [
+        {
+            "id": 1,
+            "nombre": "Labrador Retriever",
+            "estaturaPromedio": 58.5,
+            "pesoPromedio": 30.5,
+            "esperanzaVida": 11
+        },
+        {
+            "id": 2,
+            "nombre": "Pastor Alemán",
+            "estaturaPromedio": 60,
+            "pesoPromedio": 31,
+            "esperanzaVida": 11
+        },
+        {
+            "id": 3,
+            "nombre": "Golden Retriever",
+            "estaturaPromedio": 56,
+            "pesoPromedio": 29.5,
+            "esperanzaVida": 11
+        },
+        {
+            "id": 4,
+            "nombre": "Bulldog",
+            "estaturaPromedio": 35.5,
+            "pesoPromedio": 24,
+            "esperanzaVida": 9
+        },
+        {
+            "id": 5,
+            "nombre": "Beagle",
+            "estaturaPromedio": 37,
+            "pesoPromedio": 10,
+            "esperanzaVida": 13.5
+        },
+        {
+            "id": 6,
+            "nombre": "Poodle",
+            "estaturaPromedio": 42,
+            "pesoPromedio": 26,
+            "esperanzaVida": 13.5
+        },
+        {
+            "id": 7,
+            "nombre": "Rottweiler",
+            "estaturaPromedio": 62.5,
+            "pesoPromedio": 40.5,
+            "esperanzaVida": 9
+        },
+        {
+            "id": 8,
+            "nombre": "Yorkshire Terrier",
+            "estaturaPromedio": 21.5,
+            "pesoPromedio": 2.5,
+            "esperanzaVida": 14
+        },
+        {
+            "id": 9,
+            "nombre": "Boxer",
+            "estaturaPromedio": 58,
+            "pesoPromedio": 28.5,
+            "esperanzaVida": 11
+        },
+        {
+            "id": 10,
+            "nombre": "Dachshund",
+            "estaturaPromedio": 23.5,
+            "pesoPromedio": 10.5,
+            "esperanzaVida": 14
+        },
+        {
+            "id": 11,
+            "nombre": "Schnauzer",
+            "estaturaPromedio": 45,
+            "pesoPromedio": 17.5,
+            "esperanzaVida": 13.5
+        },
+        {
+            "id": 12,
+            "nombre": "Shih Tzu",
+            "estaturaPromedio": 24,
+            "pesoPromedio": 5.5,
+            "esperanzaVida": 13
+        },
+        {
+            "id": 13,
+            "nombre": "Pomerania",
+            "estaturaPromedio": 25,
+            "pesoPromedio": 2.5,
+            "esperanzaVida": 14
+        },
+        {
+            "id": 14,
+            "nombre": "Cocker Spaniel",
+            "estaturaPromedio": 40.5,
+            "pesoPromedio": 12,
+            "esperanzaVida": 13.5
+        },
+        {
+            "id": 15,
+            "nombre": "Bulldog Francés",
+            "estaturaPromedio": 29.5,
+            "pesoPromedio": 11,
+            "esperanzaVida": 11
+        },
+        {
+            "id": 16,
+            "nombre": "Border Collie",
+            "estaturaPromedio": 51,
+            "pesoPromedio": 16,
+            "esperanzaVida": 13.5
+        },
+        {
+            "id": 17,
+            "nombre": "Havanese",
+            "estaturaPromedio": 25,
+            "pesoPromedio": 5.5,
+            "esperanzaVida": 15
+        },
+        {
+            "id": 18,
+            "nombre": "Gran Danés",
+            "estaturaPromedio": 78.5,
+            "pesoPromedio": 70,
+            "esperanzaVida": 8.5
+        },
+        {
+            "id": 19,
+            "nombre": "Chihuahua",
+            "estaturaPromedio": 19,
+            "pesoPromedio": 2,
+            "esperanzaVida": 16
+        },
+        {
+            "id": 20,
+            "nombre": "Pug",
+            "estaturaPromedio": 27.5,
+            "pesoPromedio": 7.5,
+            "esperanzaVida": 14
+        }
+    ]
+}
