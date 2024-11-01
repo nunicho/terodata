@@ -1,0 +1,60 @@
+{
+    "planetas": [
+        {
+            "id": 1,
+            "nombre": "Mercurio",
+            "diametro_orbita": 57.91,
+            "distancia_del_sol": 57.91,
+            "diametro_planeta": 0.04879
+        },
+        {
+            "id": 2,
+            "nombre": "Venus",
+            "diametro_orbita": 108.2,
+            "distancia_del_sol": 108.2,
+            "diametro_planeta": 0.12104
+        },
+        {
+            "id": 3,
+            "nombre": "Tierra",
+            "diametro_orbita": 149.6,
+            "distancia_del_sol": 149.6,
+            "diametro_planeta": 0.12742
+        },
+        {
+            "id": 4,
+            "nombre": "Marte",
+            "diametro_orbita": 227.9,
+            "distancia_del_sol": 227.9,
+            "diametro_planeta": 0.06779
+        },
+        {
+            "id": 5,
+            "nombre": "Júpiter",
+            "diametro_orbita": 778.5,
+            "distancia_del_sol": 778.5,
+            "diametro_planeta": 13.9820
+        },
+        {
+            "id": 6,
+            "nombre": "Saturno",
+            "diametro_orbita": 1434,
+            "distancia_del_sol": 1434,
+            "diametro_planeta": 11.6460
+        },
+        {
+            "id": 7,
+            "nombre": "Urano",
+            "diametro_orbita": 2871,
+            "distancia_del_sol": 2871,
+            "diametro_planeta": 5.0724
+        },
+        {
+            "id": 8,
+            "nombre": "Neptuno",
+            "diametro_orbita": 4495,
+            "distancia_del_sol": 4495,
+            "diametro_planeta": 4.9244
+        }
+    ]
+}

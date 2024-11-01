@@ -1,19 +1,42 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
-    <link rel="stylesheet" href="../styles/reporte2.css" />
-    <title>Document</title>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <link rel="stylesheet" href="../styles/reporte3.css">
+  <title>Reporte3 - Perros</title>
 </head>
 <body>
-    <div class="container">
-        <h1 class="mt-5">Gráfico de Burbujas de Perros</h1>
-            <canvas id="bubbleChart" width="800" height="400"></canvas>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Gráfico de Perros</h1>
+    <p class="text-center mb-4">
+      Este gráfico muestra la distribución de diferentes razas de perros según sus características.
+    </p>
+
+    <div class="row">
+        <!-- Botones ocupan 4 columnas en pantallas grandes y 12 en medianas y pequeñas -->
+        <div class="col-lg-2 col-md-12">
+          <div class="text-center mb-4" id="buttonsDogs">
+            <!-- Botones de filtro y control -->
+            <button class="btn btn-primary" id="filterByBreed">Filtrar por raza</button>
+            <button class="btn btn-limpiar" id="clearChart">Limpiar gráfico</button>
+          </div>
+        </div>
+      <!-- Gráfico ocupa 8 columnas en pantallas grandes y 12 en medianas y pequeñas -->
+      <div class="col-lg-10 col-md-12 mb-4">
+        <div class="text-center">
+          <canvas id="bubbleChart" width="400" height="400"></canvas>
+        </div>
+      </div>
     </div>
-    
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
-    <script src="../scripts/reporte3.js"></script>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../scripts/reporte3.js"></script>
 </body>
 </html>

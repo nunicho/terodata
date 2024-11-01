@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <!-- Bootstrap CSS -->
+  <link
+    rel="stylesheet"
+    href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+  />
+  <link rel="stylesheet" href="../styles/reporte4.css">
+  <title>Reporte 4 - Planetas</title>
+  <style>
+    /* Ajustes para el canvas del gráfico */
+    #bubbleChart {
+      max-width: 100%; /* Asegura que el canvas no exceda el contenedor */
+      height: 400px;   /* Ajusta la altura deseada */
+    }
+  </style>
+</head>
+<body>
+  <div class="container mt-5">
+    <h1 class="text-center mb-4">Gráfico de Planetas</h1>
+    <p class="text-center mb-4">
+      Este gráfico muestra la distribución de los planetas del sistema solar según sus características.
+    </p>
+
+    <div class="row">
+      <!-- Botones ocupan 4 columnas en pantallas grandes y 12 en medianas y pequeñas -->
+      <div class="col-lg-2 col-md-12">
+        <div class="text-center mb-4" id="buttonsPlanets">
+          <!-- Los botones se generarán dinámicamente -->
+        </div>
+      </div>
+      <!-- Gráfico ocupa 8 columnas en pantallas grandes y 12 en medianas y pequeñas -->
+      <div class="col-lg-10 col-md-12 mb-4">
+        <div class="text-center">
+          <canvas id="bubbleChart"></canvas> <!-- El ancho y alto se controlan con CSS -->
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+  <script src="../scripts/reporte4.js"></script>
+</body>
+</html>
