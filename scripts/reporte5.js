@@ -102,3 +102,221 @@ document.addEventListener("DOMContentLoaded", () => {
       console.error("Error al cargar el gráfico:", error); // Manejo de errores
     });
 });
+
+
+
+fetch("../data/datosReporte5.json")
+  .then((response) => response.json())
+  .then((data) => {
+    // Obtener datos de títulos
+    const jugadores = data.jugadores;
+    const titulos = Object.keys(jugadores[0].titulos); // Obtener las categorías de títulos
+    const messiTitulos = titulos.map((titulo) => jugadores[0].titulos[titulo]); // Títulos de Messi
+    const ronaldoTitulos = titulos.map(
+      (titulo) => jugadores[1].titulos[titulo]
+    ); // Títulos de Ronaldo
+
+    // Configurar el gráfico
+    const ctx = document.getElementById("myChart").getContext("2d");
+    const chart = new Chart(ctx, {
+      type: "bar", // Tipo de gráfico de barras
+      data: {
+        labels: titulos, // Etiquetas del eje Y (títulos)
+        datasets: [
+          {
+            label: "Lionel Messi",
+            data: messiTitulos,
+            backgroundColor: "rgba(255, 99, 132, 0.6)", // Color para Messi
+            borderColor: "rgba(255, 99, 132, 1)", // Color de borde
+            borderWidth: 1,
+          },
+          {
+            label: "Cristiano Ronaldo",
+            data: ronaldoTitulos,
+            backgroundColor: "rgba(54, 162, 235, 0.6)", // Color para Ronaldo
+            borderColor: "rgba(54, 162, 235, 1)", // Color de borde
+            borderWidth: 1,
+          },
+        ],
+      },
+      options: {
+        indexAxis: "y", // Para hacer el gráfico horizontal
+        responsive: true,
+        scales: {
+          x: {
+            beginAtZero: true, // Comenzar en cero
+            title: {
+              display: true,
+              text: "Número de Títulos", // Título del eje X
+            },
+          },
+          y: {
+            title: {
+              display: true,
+              text: "Categorías de Títulos", // Título del eje Y
+            },
+          },
+        },
+        plugins: {
+          legend: {
+            display: true,
+            position: "top",
+          },
+        },
+      },
+    });
+  })
+  .catch((error) => {
+    console.error("Error al cargar los datos:", error);
+  });
+
+
+  document.addEventListener("DOMContentLoaded", function () {
+    // Función para cargar y mostrar el gráfico de premios
+    function cargarGraficoPremios() {
+      fetch("../data/datosReporte5.json")
+        .then((response) => response.json())
+        .then((data) => {
+          // Obtener datos de premios
+          const jugadores = data.jugadores;
+          const premios = Object.keys(jugadores[0].premios); // Obtener las categorías de premios
+          const messiPremios = premios.map(
+            (premio) => jugadores[0].premios[premio]
+          ); // Premios de Messi
+          const ronaldoPremios = premios.map(
+            (premio) => jugadores[1].premios[premio]
+          ); // Premios de Ronaldo
+
+          // Configurar el gráfico de premios
+          const ctxPremios = document
+            .getElementById("myChartAwards")
+            .getContext("2d");
+          const chartPremios = new Chart(ctxPremios, {
+            type: "bar", // Tipo de gráfico de barras
+            data: {
+              labels: premios, // Etiquetas del eje Y (premios)
+              datasets: [
+                {
+                  label: "Lionel Messi",
+                  data: messiPremios,
+                  backgroundColor: "rgba(255, 99, 132, 0.6)", // Color para Messi
+                  borderColor: "rgba(255, 99, 132, 1)", // Color de borde
+                  borderWidth: 1,
+                },
+                {
+                  label: "Cristiano Ronaldo",
+                  data: ronaldoPremios,
+                  backgroundColor: "rgba(54, 162, 235, 0.6)", // Color para Ronaldo
+                  borderColor: "rgba(54, 162, 235, 1)", // Color de borde
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              indexAxis: "y", // Para hacer el gráfico horizontal
+              responsive: true,
+              scales: {
+                x: {
+                  beginAtZero: true, // Comenzar en cero
+                  title: {
+                    display: true,
+                    text: "Número de Premios", // Título del eje X
+                  },
+                },
+                y: {
+                  title: {
+                    display: true,
+                    text: "Categorías de Premios", // Título del eje Y
+                  },
+                },
+              },
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "top",
+                },
+              },
+            },
+          });
+        })
+        .catch((error) => {
+          console.error("Error al cargar los datos de premios:", error);
+        });
+    }
+
+    // Función para cargar y mostrar el gráfico de tarjetas
+    function cargarGraficoTarjetas() {
+      fetch("../data/datosReporte5.json")
+        .then((response) => response.json())
+        .then((data) => {
+          // Obtener datos de tarjetas
+          const jugadores = data.jugadores;
+          const tarjetas = ["amarillas", "rojas"]; // Tipos de tarjetas
+          const messiTarjetas = tarjetas.map(
+            (tipo) => jugadores[0].tarjetas[tipo]
+          ); // Tarjetas de Messi
+          const ronaldoTarjetas = tarjetas.map(
+            (tipo) => jugadores[1].tarjetas[tipo]
+          ); // Tarjetas de Ronaldo
+
+          // Configurar el gráfico de tarjetas
+          const ctxTarjetas = document
+            .getElementById("myChartCards")
+            .getContext("2d");
+          const chartTarjetas = new Chart(ctxTarjetas, {
+            type: "bar", // Tipo de gráfico de barras
+            data: {
+              labels: tarjetas, // Etiquetas del eje Y (tarjetas)
+              datasets: [
+                {
+                  label: "Lionel Messi",
+                  data: messiTarjetas,
+                  backgroundColor: "rgba(255, 99, 132, 0.6)", // Color para Messi
+                  borderColor: "rgba(255, 99, 132, 1)", // Color de borde
+                  borderWidth: 1,
+                },
+                {
+                  label: "Cristiano Ronaldo",
+                  data: ronaldoTarjetas,
+                  backgroundColor: "rgba(54, 162, 235, 0.6)", // Color para Ronaldo
+                  borderColor: "rgba(54, 162, 235, 1)", // Color de borde
+                  borderWidth: 1,
+                },
+              ],
+            },
+            options: {
+              indexAxis: "y", // Para hacer el gráfico horizontal
+              responsive: true,
+              scales: {
+                x: {
+                  beginAtZero: true, // Comenzar en cero
+                  title: {
+                    display: true,
+                    text: "Número de Tarjetas", // Título del eje X
+                  },
+                },
+                y: {
+                  title: {
+                    display: true,
+                    text: "Tipos de Tarjetas", // Título del eje Y
+                  },
+                },
+              },
+              plugins: {
+                legend: {
+                  display: true,
+                  position: "top",
+                },
+              },
+            },
+          });
+        })
+        .catch((error) => {
+          console.error("Error al cargar los datos de tarjetas:", error);
+        });
+    }
+
+    // Llamar a las funciones para cargar los gráficos
+    cargarGraficoPremios();
+    cargarGraficoTarjetas();
+  });
