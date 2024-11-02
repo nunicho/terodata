@@ -74,6 +74,7 @@ function guardarEnLocalStorage(key, inputs) {
   localStorage.removeItem("reporte-ratios");
 
   alert("Datos guardados correctamente. Ratios recalculados.");
+  location.reload();
 }
 
 function calcularPatrimonioNeto() {
@@ -162,6 +163,7 @@ function limpiarRegistros(inputsPatrimonio, inputsResultados) {
   localStorage.setItem("form-resultados", JSON.stringify({}));
 
   alert("Registros limpiados correctamente.");
+  location.reload();
 }
 
 document.getElementById("limpiar-registros").addEventListener("click", () => {
@@ -171,6 +173,7 @@ document.getElementById("limpiar-registros").addEventListener("click", () => {
 
   if (confirmar) {
     limpiarRegistros(inputsPatrimonio, inputsResultados);
+    location.reload();
   } else {
     alert("Acción cancelada.");
   }

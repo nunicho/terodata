@@ -9,173 +9,254 @@
       name="keywords"
       content="ratios javascript solvencia liquidez rentabilidad"
     />
-    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" />
+    <link
+      rel="stylesheet"
+      href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
+    />
+     <link rel="stylesheet" href="../styles/reporte6.css">
     <title>Reporte</title>
   </head>
   <body>
-    <div class="container">
-<section>
-      <h2>Datos de la Empresa</h2>
-      <form id="empresaForm">
-        <label for="nombre">Nombre de la Empresa:</label>
-        <input type="text" id="nombre" name="nombre" required />
+    <article class="container">
+      <section>
+        <h2>Datos de la Empresa</h2>
+        <form id="empresaForm">
+          <label for="nombre">Nombre de la Empresa:</label>
+          <input type="text" id="nombre" name="nombre" required />
 
-        <label for="actividad">Actividad:</label>
-        <input type="text" id="actividad" name="actividad" required />
+          <label for="actividad">Actividad:</label>
+          <input type="text" id="actividad" name="actividad" required />
 
-        <label for="ubicacion">Ubicación:</label>
-        <input type="text" id="ubicacion" name="ubicacion" required />
+          <label for="ubicacion">Ubicación:</label>
+          <input type="text" id="ubicacion" name="ubicacion" required />
 
-        <button class="primary" type="submit">Enviar</button>
-        <button class="tertiary" type="button" id="borrar">Borrar Datos</button>
-      </form>
-
-      <div id="resultado"></div>
-    </section>
-
-    </div>
-    <div class="container">
-      <div class="row">
-        <section class="col-lg-4 col-md-4 col-sm-12">
-          <h5>Estado de Situación Patrimonial</h5>
-          <form id="form-patrimonio">
-            <div class="form-group">
-              <label for="caja-bancos">Caja/Bancos:</label>
-              <input type="number" id="caja-bancos" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="inversiones-transitorias">Inversiones Transitorias:</label>
-              <input type="number" id="inversiones-transitorias" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="bienes-cambio">Bienes en Cambio:</label>
-              <input type="number" id="bienes-cambio" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="activo-no-corriente">Activo No Corriente:</label>
-              <input type="number" id="activo-no-corriente" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="pasivo-corriente">Pasivo Corriente:</label>
-              <input type="number" id="pasivo-corriente" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="pasivo-no-corriente">Pasivo No Corriente:</label>
-              <input type="number" id="pasivo-no-corriente" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="patrimonio-neto">Patrimonio Neto:</label>
-              <input type="number" id="patrimonio-neto" class="form-control" disabled />
-            </div>
-            <button class="btn btn-primary" type="submit">
-              Guardar Situación Patrimonial
-            </button>
-          </form>
-        </section>
-
-        <section class="col-lg-4 col-md-4 col-sm-12">
-          <h5>Estado de Resultados</h5>
-          <form id="form-resultados">
-            <div class="form-group">
-              <label for="ventas">Ventas:</label>
-              <input type="number" id="ventas" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="gastos-operativos">Gastos Operativos:</label>
-              <input type="number" id="gastos-operativos" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="utilidad-bruta">Utilidad Bruta:</label>
-              <input type="number" id="utilidad-bruta" class="form-control" disabled />
-            </div>
-            <div class="form-group">
-              <label for="gastos-comercializacion">Gastos de Comercialización:</label>
-              <input type="number" id="gastos-comercializacion" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="gastos-administracion">Gastos de Administración:</label>
-              <input type="number" id="gastos-administracion" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="gastos-financiacion">Gastos de Financiación:</label>
-              <input type="number" id="gastos-financiacion" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="utilidad-antes-impuesto">Utilidad Antes de Impuesto:</label>
-              <input type="number" id="utilidad-antes-impuesto" class="form-control" disabled />
-            </div>
-            <div class="form-group">
-              <label for="impuesto">Impuesto:</label>
-              <input type="number" id="impuesto" class="form-control" />
-            </div>
-            <div class="form-group">
-              <label for="utilidad-neta">Utilidad Neta:</label>
-              <input type="number" id="utilidad-neta" class="form-control" disabled />
-            </div>
-            <button class="btn btn-primary" type="submit">Guardar Resultados</button>
-          </form>
-          <button type="button" class="btn btn-secondary" id="limpiar-registros">
-            Limpiar Registros
+          <button class="primary" type="submit">Enviar</button>
+          <button class="tertiary" type="button" id="borrar">
+            Borrar Datos
           </button>
-        </section>
+        </form>
 
-        <section class="col-lg-4 col-md-4 col-sm-12">
-            <h5>Cálculo de ratios</h5>
-          <table id="tabla-ratios" class="table">
+        <div id="resultado"></div>
+      </section>
+    </article>
+    <article class="container">
+
+      <div class="row">
+
+        <div class="row col-lg-8 col-md-8 col-sm-12">
+            
+          <section class="col-lg-6 col-md-6 col-sm-12">
+            <h5>Estado de Situación Patrimonial</h5>
+            <form id="form-patrimonio">
+              <div class="form-group">
+                <label for="caja-bancos">Caja/Bancos:</label>
+                <input type="number" id="caja-bancos" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="inversiones-transitorias"
+                  >Inversiones Transitorias:</label
+                >
+                <input
+                  type="number"
+                  id="inversiones-transitorias"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="bienes-cambio">Bienes en Cambio:</label>
+                <input type="number" id="bienes-cambio" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="activo-no-corriente">Activo No Corriente:</label>
+                <input
+                  type="number"
+                  id="activo-no-corriente"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="pasivo-corriente">Pasivo Corriente:</label>
+                <input
+                  type="number"
+                  id="pasivo-corriente"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="pasivo-no-corriente">Pasivo No Corriente:</label>
+                <input
+                  type="number"
+                  id="pasivo-no-corriente"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="patrimonio-neto">Patrimonio Neto:</label>
+                <input
+                  type="number"
+                  id="patrimonio-neto"
+                  class="form-control"
+                  disabled
+                />
+              </div>
+              <button class="btn btn-primary" type="submit">
+                Guardar Situación Patrimonial
+              </button>
+            </form>
+          </section>
+
+          <section class="col-lg-6 col-md-6 col-sm-12">
+            <h5>Estado de Resultados</h5>
+            <form id="form-resultados">
+              <div class="form-group">
+                <label for="ventas">Ventas:</label>
+                <input type="number" id="ventas" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="gastos-operativos">Gastos Operativos:</label>
+                <input
+                  type="number"
+                  id="gastos-operativos"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="utilidad-bruta">Utilidad Bruta:</label>
+                <input
+                  type="number"
+                  id="utilidad-bruta"
+                  class="form-control"
+                  disabled
+                />
+              </div>
+              <div class="form-group">
+                <label for="gastos-comercializacion"
+                  >Gastos de Comercialización:</label
+                >
+                <input
+                  type="number"
+                  id="gastos-comercializacion"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="gastos-administracion"
+                  >Gastos de Administración:</label
+                >
+                <input
+                  type="number"
+                  id="gastos-administracion"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="gastos-financiacion">Gastos de Financiación:</label>
+                <input
+                  type="number"
+                  id="gastos-financiacion"
+                  class="form-control"
+                />
+              </div>
+              <div class="form-group">
+                <label for="utilidad-antes-impuesto"
+                  >Utilidad Antes de Impuesto:</label
+                >
+                <input
+                  type="number"
+                  id="utilidad-antes-impuesto"
+                  class="form-control"
+                  disabled
+                />
+              </div>
+              <div class="form-group">
+                <label for="impuesto">Impuesto:</label>
+                <input type="number" id="impuesto" class="form-control" />
+              </div>
+              <div class="form-group">
+                <label for="utilidad-neta">Utilidad Neta:</label>
+                <input
+                  type="number"
+                  id="utilidad-neta"
+                  class="form-control"
+                  disabled
+                />
+              </div>
+              <button class="btn btn-primary" type="submit">
+                Guardar Resultados
+              </button>
+            </form>
+          </section>
+          <section class="col-lg-12 col-md-12 col-sm-12 text-center">
+            <button
+              type="button"
+              class="btn btn-secondary w-100 m-0"
+              id="limpiar-registros"
+            >
+              Limpiar Registros
+            </button>
+          </section>
+        </div>
+
+        
+     <section class="col-lg-4 col-md-4 col-sm-12 row">
+    <h5>Cálculo de ratios</h5>
+    <div class="table-responsive"> <!-- Contenedor para habilitar el scroll horizontal -->
+        <table id="tabla-ratios" class="table">
             <thead>
-              <tr>
-                <th>Ratio</th>
-                <th>Valor</th>
-              </tr>
+                <tr>
+                    <th>Ratio</th>
+                    <th>Valor</th>
+                </tr>
             </thead>
             <tbody>
-              <tr>
-                <td>Liquidez Corriente</td>
-                <td id="liquidez-corriente"></td>
-              </tr>
-              <tr>
-                <td>Liquidez Ácida</td>
-                <td id="liquidez-acida"></td>
-              </tr>
-              <tr>
-                <td>Disponibilidad de Tesorería</td>
-                <td id="disponibilidad-tesoreria"></td>
-              </tr>
-              <tr>
-                <td>Días de Tesorería</td>
-                <td id="dias-tesoreria"></td>
-              </tr>
-              <tr>
-                <td>Solvencia</td>
-                <td id="solvencia"></td>
-              </tr>
-              <tr>
-                <td>Endeudamiento</td>
-                <td id="endeudamiento"></td>
-              </tr>
-              <tr>
-                <td>ROA</td>
-                <td id="roa"></td>
-              </tr>
-              <tr>
-                <td>ROE</td>
-                <td id="roe"></td>
-              </tr>
-              <tr>
-                <td>ROCE</td>
-                <td id="roce"></td>
-              </tr>
+                <tr>
+                    <td>Liquidez Corriente</td>
+                    <td id="liquidez-corriente"></td>
+                </tr>
+                <tr>
+                    <td>Liquidez Ácida</td>
+                    <td id="liquidez-acida"></td>
+                </tr>
+                <tr>
+                    <td>Disponibilidad de Tesorería</td>
+                    <td id="disponibilidad-tesoreria"></td>
+                </tr>
+                <tr>
+                    <td>Días de Tesorería</td>
+                    <td id="dias-tesoreria"></td>
+                </tr>
+                <tr>
+                    <td>Solvencia</td>
+                    <td id="solvencia"></td>
+                </tr>
+                <tr>
+                    <td>Endeudamiento</td>
+                    <td id="endeudamiento"></td>
+                </tr>
+                <tr>
+                    <td>ROA</td>
+                    <td id="roa"></td>
+                </tr>
+                <tr>
+                    <td>ROE</td>
+                    <td id="roe"></td>
+                </tr>
+                <tr>
+                    <td>ROCE</td>
+                    <td id="roce"></td>
+                </tr>
             </tbody>
-          </table>
-          <div id="fecha-reporte"></div>
-          <div id="reporte-cards" class="reporte-cards"></div>
-        </section>
-      </div>
+        </table>
     </div>
+</section>
 
-      <h1>Reporte de Ratios</h1>
-    <div id="fecha-reporte"></div>
-      <div id="reporte-cards" class="reporte-cards"></div>
+      </div>
+    </article>
+    <article class="container">
+        <div id="fecha-reporte"></div>
+        <div id="reporte-cards" class="reporte-cards"></div>
+    </article>
+
 
     <script src="../scripts/reporte6-inputs.js"></script>
     <script src="../scripts/reporte6-nombreEmpresa.js"></script>

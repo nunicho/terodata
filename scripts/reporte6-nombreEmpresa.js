@@ -8,7 +8,6 @@ document.addEventListener("DOMContentLoaded", function () {
   const empresaGuardada = JSON.parse(localStorage.getItem("empresa"));
   if (empresaGuardada) {
     cargarDatosEnFormulario(empresaGuardada);
-    mostrarDatos(empresaGuardada);
   }
 
   form.addEventListener("submit", function (event) {
@@ -30,9 +29,9 @@ document.addEventListener("DOMContentLoaded", function () {
     localStorage.removeItem("form-patrimonio");
     localStorage.removeItem("form-resultados");
 
-    mostrarDatos(empresa);
-
+ 
     alert("Empresa asignada. Estados contables y ratios reiniciados.");
+    location.reload();
   });
 
   botonBorrar.addEventListener("click", function () {
@@ -48,15 +47,6 @@ document.addEventListener("DOMContentLoaded", function () {
       alert("Operación cancelada.");
     }
   });
-
-  function mostrarDatos(empresa) {
-    resultadoDiv.innerHTML = `
-      <h3>Datos ingresados:</h3>
-      <p><strong>Nombre de la Empresa:</strong> ${empresa.nombre}</p>
-      <p><strong>Actividad:</strong> ${empresa.actividad}</p>
-      <p><strong>Ubicación:</strong> ${empresa.ubicacion}</p>
-    `;
-  }
 
   function cargarDatosEnFormulario(empresa) {
     document.getElementById("nombre").value = empresa.nombre;

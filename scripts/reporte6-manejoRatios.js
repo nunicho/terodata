@@ -15,6 +15,7 @@ function agregarAlReporte(nombre, valor) {
   }
 
   actualizarBotones();
+  location.reload();
 }
 
 function eliminarDelReporte(nombre) {
@@ -22,6 +23,7 @@ function eliminarDelReporte(nombre) {
   reporte = reporte.filter((r) => r.nombre !== nombre);
   localStorage.setItem("reporte-ratios", JSON.stringify(reporte));
   actualizarBotones();
+  location.reload();
 }
 
 function actualizarBotones() {
