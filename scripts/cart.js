@@ -1,156 +1,70 @@
-document.addEventListener("DOMContentLoaded", function () {
-  // Cargar el carrito desde localStorage al iniciar la página
-  let cart = JSON.parse(localStorage.getItem("cart")) || [];
-  console.log("Carrito cargado desde localStorage:", cart); // Verifica si se carga correctamente
+const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
-  // Función para agregar un producto al carrito
-  window.addToCart = function (item, price) {
-    const existingProduct = cart.find((product) => product.item === item);
+// Función para agregar productos al carrito
+function addToCart(productName, productPrice) {
+  const userData = JSON.parse(localStorage.getItem("user-login"));
+  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-    if (existingProduct) {
-      existingProduct.quantity += 1; // Incrementa la cantidad si ya existe
-    } else {
-      cart.push({ item, price, quantity: 1 }); // Agrega un nuevo producto al carrito
-    }
-
-    updateCart(); // Llama a updateCart para actualizar el contador y la vista del carrito
-  };
-
-  // Función para actualizar la visualización del carrito y guardar en localStorage
-  function updateCart() {
-    let cartCount = document.getElementById("cart-count");
-    const totalQuantity = cart.reduce(
-      (total, product) => total + product.quantity,
-      0
-    );
-    console.log("Cantidad total de productos calculada:", totalQuantity); // Verifica el conteo
-    cartCount.textContent = totalQuantity; // Actualiza el número total de artículos en el carrito
-
-    let cartContent = document.getElementById("cartItemsContainer");
-    cartContent.innerHTML = ""; // Limpiar el contenido actual
-
-    if (cart.length === 0) {
-      cartContent.innerHTML = "<p>No hay artículos en el carrito.</p>";
-    } else {
-      let total = cart.reduce(
-        (sum, product) => sum + product.price * product.quantity,
-        0
-      );
-      cartContent.innerHTML = `
-                <ul class="list-group mb-3">
-                    ${cart
-                      .map(
-                        (product, index) => `
-                        <li class="list-group-item d-flex justify-content-between align-items-center">
-                            <div>
-                                ${product.item} - USD ${product.price.toFixed(
-                          2
-                        )} x ${product.quantity}
-                            </div>
-                            <div>
-                                <button class="btn btn-sm btn-outline-primary" onclick="increaseQuantity(${index})">+</button>
-                                <button class="btn btn-sm ${
-                                  product.quantity === 1
-                                    ? "btn-outline-secondary"
-                                    : "btn-warning"
-                                }" onclick="decreaseQuantity(${index})" ${
-                          product.quantity === 1 ? "disabled" : ""
-                        }>-</button>
-                                <button class="btn btn-sm btn-outline-danger" onclick="removeProduct(${index})">Eliminar</button>
-                            </div>
-                        </li>
-                    `
-                      )
-                      .join("")}
-                </ul>
-                <h5 class="text-end">Total: USD ${total.toFixed(2)}</h5>
-            `;
-    }
-
-    // Guardar el carrito en localStorage
-    localStorage.setItem("cart", JSON.stringify(cart));
+  // Verificar si el usuario está autenticado
+  if (!userData) {
+    alert("Debes iniciar sesión para agregar productos al carrito.");
+    return;
   }
 
-  // Función para aumentar la cantidad de un producto
-  window.increaseQuantity = function (index) {
-    if (cart[index]) {
-      cart[index].quantity += 1;
-      updateCart(); // Actualiza el carrito después de aumentar la cantidad
+  // Buscar coincidencia de email en la lista de usuarios existentes
+  const matchedUser = existingUsers.find(
+    (user) => user.email === userData.email
+  );
+
+  // Si hay una coincidencia, agregar el producto al carrito de ese usuario
+  if (matchedUser) {
+    const cartItem = { name: productName, price: productPrice };
+
+    // Asegurarse de que el carrito se inicialice en caso de que no exista
+    if (!matchedUser.cart) {
+      matchedUser.cart = [];
     }
-  };
 
-  // Función para disminuir la cantidad de un producto
-  window.decreaseQuantity = function (index) {
-    if (cart[index] && cart[index].quantity > 1) {
-      cart[index].quantity -= 1;
-      updateCart(); // Actualiza el carrito después de disminuir la cantidad
-    }
-  };
+    // Agregar el producto al carrito del usuario
+    matchedUser.cart.push(cartItem);
+    localStorage.setItem("users", JSON.stringify(existingUsers)); // Actualizar la lista de usuarios en localStorage
 
-  // Función para eliminar un producto del carrito
-  window.removeProduct = function (index) {
-    if (cart[index]) {
-      cart.splice(index, 1); // Elimina el producto del carrito
-      updateCart(); // Actualiza el carrito después de eliminar el producto
-    }
-  };
-
-  // Llama a updateCart al cargar la página
-  updateCart();
-});
-
-// Función para verificar si el usuario está autenticado
-function isUserLoggedIn() {
-  return !!localStorage.getItem("user-login"); // Cambia esto según tu lógica de autenticación
-}
-
-// Función para proceder al pago
-function proceedToCheckout() {
-  if (isUserLoggedIn()) {
-    alert("Gracias por su compra");
+    updateCartCount();
+    updateCartDisplay();
   } else {
-    const loginModal = new bootstrap.Modal(
-      document.getElementById("loginModal")
-    );
-    loginModal.show();
+    alert("No se encontró el usuario asociado al email logueado.");
   }
 }
 
-// Evento click en el botón de checkout
-document
-  .getElementById("checkoutButton")
-  .addEventListener("click", proceedToCheckout);
+// Función para actualizar el conteo de artículos en el carrito
+function updateCartCount() {
+  const cartCount = document.getElementById("cart-count");
+  cartCount.innerText = cart.length;
+}
 
-// Función para agregar elementos al carrito
-function addToCart(item, price) {
-  const existingProduct = cart.find((product) => product.item === item);
-  if (existingProduct) {
-    existingProduct.quantity += 1;
+// Función para actualizar la visualización del carrito
+function updateCartDisplay() {
+  const cartItemsContainer = document.getElementById("cartItemsContainer");
+  cartItemsContainer.innerHTML = ""; // Limpiar el contenedor
+
+  // Solo se puede mostrar el carrito si el usuario está autenticado
+  const userData = JSON.parse(localStorage.getItem("user-login"));
+  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+  const matchedUser = existingUsers.find(
+    (user) => user.email === userData.email
+  );
+
+  if (matchedUser && matchedUser.cart.length > 0) {
+    matchedUser.cart.forEach((item) => {
+      const itemElement = document.createElement("div");
+      itemElement.className = "cart-item";
+      itemElement.innerText = `${item.name} - USD ${item.price}`;
+      cartItemsContainer.appendChild(itemElement);
+    });
   } else {
-    cart.push({ item, price, quantity: 1 });
+    cartItemsContainer.innerHTML = "<p>No hay artículos en el carrito.</p>";
   }
-  alert(`Agregado al carrito: ${item} por USD ${price.toFixed(2)}`);
-  updateCart(); // Actualiza el carrito después de agregar un producto
 }
 
-// Función para aumentar la cantidad de un producto
-function increaseQuantity(index) {
-  cart[index].quantity += 1;
-  updateCart();
-}
-
-// Función para disminuir la cantidad de un producto
-function decreaseQuantity(index) {
-  if (cart[index].quantity > 1) {
-    cart[index].quantity -= 1;
-  } else {
-    cart.splice(index, 1); // Elimina el producto si la cantidad es 0
-  }
-  updateCart();
-}
-
-// Función para eliminar un producto del carrito
-function removeProduct(index) {
-  cart.splice(index, 1);
-  updateCart();
-}
+// Inicializar la visualización del carrito al cargar la página
+document.addEventListener("DOMContentLoaded", updateCartDisplay);
