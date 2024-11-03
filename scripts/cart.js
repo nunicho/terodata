@@ -1,4 +1,3 @@
-// Inicializar el carrito desde localStorage o como un array vacío
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Función para agregar productos al carrito
@@ -30,12 +29,14 @@ function addToCart(productName, productPrice) {
 
     if (existingProduct) {
       existingProduct.quantity += 1; // Incrementa la cantidad si ya existe
+      alert(`Se ha incrementado la cantidad de ${productName}.`); // Alert de producto incrementado
     } else {
       matchedUser.cart.push({
         name: productName,
         price: productPrice,
         quantity: 1,
       }); // Agrega un nuevo producto al carrito
+      alert(`Producto agregado al carrito: ${productName}`); // Alert de producto agregado
     }
 
     localStorage.setItem("users", JSON.stringify(existingUsers)); // Actualizar la lista de usuarios en localStorage
@@ -225,8 +226,7 @@ document.addEventListener("DOMContentLoaded", function () {
 
   const checkoutButton = document.getElementById("checkoutButton");
   checkoutButton.addEventListener("click", function () {
-    alert("¡Gracias por tu compra!"); // Mensaje de agradecimiento
-    clearCart(); // Limpiar el carrito
-    location.reload();
+    alert("¡Gracias por tu compra!"); // Mensaje de agradecimiento al realizar la compra
+    clearCart(); // Vaciar el carrito después de la compra
   });
 });
