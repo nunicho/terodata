@@ -44,7 +44,6 @@ function updateCartCount() {
 
   const cartCount = document.getElementById("cart-count");
   if (userData) {
-    // Verificar si userData no es null
     const matchedUser = existingUsers.find(
       (user) => user.email === userData.email
     );
@@ -61,14 +60,13 @@ function updateCartCount() {
 // Función para actualizar la visualización del carrito
 function updateCartDisplay() {
   const cartItemsContainer = document.getElementById("cartItemsContainer");
+  const checkoutButton = document.getElementById("checkoutButton"); // Obtener el botón de checkout
   cartItemsContainer.innerHTML = ""; // Limpiar el contenedor
 
-  // Solo se puede mostrar el carrito si el usuario está autenticado
   const userData = JSON.parse(localStorage.getItem("user-login"));
   const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
   if (userData) {
-    // Verificar si userData no es null
     const matchedUser = existingUsers.find(
       (user) => user.email === userData.email
     );
@@ -80,11 +78,14 @@ function updateCartDisplay() {
         itemElement.innerText = `${item.name} - USD ${item.price}`;
         cartItemsContainer.appendChild(itemElement);
       });
+      checkoutButton.classList.remove("d-none"); // Mostrar el botón si hay productos en el carrito
     } else {
       cartItemsContainer.innerHTML = "<p>No hay artículos en el carrito.</p>";
+      checkoutButton.classList.add("d-none"); // Ocultar el botón si no hay productos
     }
   } else {
     cartItemsContainer.innerHTML = "<p>No hay artículos en el carrito.</p>"; // Mensaje si no hay usuario logueado
+    checkoutButton.classList.add("d-none"); // Ocultar el botón si no hay usuario logueado
   }
 }
 
