@@ -19,15 +19,25 @@ function addToCart(productName, productPrice) {
 
   // Si hay una coincidencia, agregar el producto al carrito de ese usuario
   if (matchedUser) {
-    const cartItem = { name: productName, price: productPrice };
-
     // Asegurarse de que el carrito se inicialice en caso de que no exista
     if (!matchedUser.cart) {
       matchedUser.cart = [];
     }
 
-    // Agregar el producto al carrito del usuario
-    matchedUser.cart.push(cartItem);
+    const existingProduct = matchedUser.cart.find(
+      (item) => item.name === productName
+    );
+
+    if (existingProduct) {
+      existingProduct.quantity += 1; // Incrementa la cantidad si ya existe
+    } else {
+      matchedUser.cart.push({
+        name: productName,
+        price: productPrice,
+        quantity: 1,
+      }); // Agrega un nuevo producto al carrito
+    }
+
     localStorage.setItem("users", JSON.stringify(existingUsers)); // Actualizar la lista de usuarios en localStorage
 
     // Actualizar el conteo y la visualización del carrito después de agregar un producto
@@ -51,7 +61,10 @@ function updateCartCount() {
       (user) => user.email === userData.email
     );
     if (matchedUser && matchedUser.cart) {
-      cartCount.innerText = matchedUser.cart.length; // Mostrar la cantidad de artículos en el carrito del usuario
+      cartCount.innerText = matchedUser.cart.reduce(
+        (total, item) => total + item.quantity,
+        0
+      ); // Mostrar la cantidad total de artículos en el carrito
     } else {
       cartCount.innerText = 0; // Si no hay carrito, mostrar 0
     }
@@ -63,7 +76,7 @@ function updateCartCount() {
 // Función para actualizar la visualización del carrito
 function updateCartDisplay() {
   const cartItemsContainer = document.getElementById("cartItemsContainer");
-  const checkoutButton = document.getElementById("checkoutButton"); // Agregamos la referencia al botón
+  const checkoutButton = document.getElementById("checkoutButton");
   if (!cartItemsContainer) return; // Verificar que el contenedor existe
 
   const userData = JSON.parse(localStorage.getItem("user-login"));
@@ -85,19 +98,62 @@ function updateCartDisplay() {
           // Crear un div para el elemento del carrito
           const itemElement = document.createElement("div");
           itemElement.classList.add("cart-item");
-          itemElement.innerText = `${item.name} - $${item.price}`;
+          itemElement.innerText = `${item.name} - $${item.price} x ${item.quantity}`;
+
+          // Crear botones de "Aumentar" y "Disminuir"
+          const increaseButton = document.createElement("button");
+          increaseButton.innerText = "+";
+          increaseButton.classList.add("increase-button");
+          increaseButton.addEventListener("click", () => {
+            const updatedCart = matchedUser.cart.map((cartItem, cartIndex) => {
+              if (cartIndex === index) {
+                return { ...cartItem, quantity: cartItem.quantity + 1 }; // Crea una copia actualizada
+              }
+              return cartItem; // Devuelve el cartItem original
+            });
+
+            matchedUser.cart = updatedCart; // Actualiza el carrito
+            localStorage.setItem("users", JSON.stringify(existingUsers)); // Guardar cambios
+            updateCartDisplay(); // Actualiza la visualización
+            updateCartCount(); // Actualiza el conteo
+          });
+
+          const decreaseButton = document.createElement("button");
+          decreaseButton.innerText = "-";
+          decreaseButton.classList.add("decrease-button");
+          decreaseButton.disabled = item.quantity === 1; // Desactiva si es 1
+          decreaseButton.addEventListener("click", () => {
+            const updatedCart = matchedUser.cart
+              .map((cartItem, cartIndex) => {
+                if (cartIndex === index) {
+                  if (cartItem.quantity > 1) {
+                    return { ...cartItem, quantity: cartItem.quantity - 1 }; // Crea una copia actualizada
+                  } else {
+                    removeCartItem(index); // Elimina el producto si la cantidad es 1
+                    return null; // Marca como null para eliminar después
+                  }
+                }
+                return cartItem; // Devuelve el cartItem original
+              })
+              .filter((item) => item !== null); // Filtra los nulos
+
+            matchedUser.cart = updatedCart; // Actualiza el carrito
+            localStorage.setItem("users", JSON.stringify(existingUsers)); // Guardar cambios
+            updateCartDisplay(); // Actualiza la visualización
+            updateCartCount(); // Actualiza el conteo
+          });
 
           // Crear un botón de "Eliminar"
           const deleteButton = document.createElement("button");
           deleteButton.innerText = "Eliminar";
           deleteButton.classList.add("delete-button");
-
-          // Agregar un evento al botón de "Eliminar"
           deleteButton.addEventListener("click", () => {
             removeCartItem(index);
           });
 
-          // Agregar el botón al elemento del carrito
+          // Agregar los botones al elemento del carrito
+          itemElement.appendChild(increaseButton);
+          itemElement.appendChild(decreaseButton);
           itemElement.appendChild(deleteButton);
           cartItemsContainer.appendChild(itemElement);
         });
