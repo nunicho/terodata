@@ -89,8 +89,32 @@ function updateCartDisplay() {
   }
 }
 
+// Función para limpiar el carrito
+function clearCart() {
+  const userData = JSON.parse(localStorage.getItem("user-login"));
+  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+  if (userData) {
+    const matchedUser = existingUsers.find(
+      (user) => user.email === userData.email
+    );
+    if (matchedUser) {
+      matchedUser.cart = []; // Vaciar el carrito del usuario
+      localStorage.setItem("users", JSON.stringify(existingUsers)); // Actualizar la lista de usuarios en localStorage
+      updateCartDisplay(); // Actualizar la visualización del carrito
+    }
+  }
+}
+
 // Inicializar la visualización del carrito y el conteo al cargar la página
 document.addEventListener("DOMContentLoaded", function () {
   updateCartDisplay();
   updateCartCount(); // Asegúrate de llamar a esta función aquí también
+
+  const checkoutButton = document.getElementById("checkoutButton");
+  checkoutButton.addEventListener("click", function () {
+    alert("¡Gracias por tu compra!"); // Mensaje de agradecimiento
+    clearCart(); // Limpiar el carrito
+    location.reload();
+  });
 });
