@@ -1,3 +1,4 @@
+// Inicializar el carrito desde localStorage o como un array vacío
 const cart = JSON.parse(localStorage.getItem("cart")) || [];
 
 // Función para agregar productos al carrito
@@ -39,10 +40,12 @@ function addToCart(productName, productPrice) {
 
 // Función para actualizar el conteo de artículos en el carrito
 function updateCartCount() {
+  const cartCount = document.getElementById("cart-count");
+  if (!cartCount) return; // Verificar que el elemento existe
+
   const userData = JSON.parse(localStorage.getItem("user-login"));
   const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-  const cartCount = document.getElementById("cart-count");
   if (userData) {
     const matchedUser = existingUsers.find(
       (user) => user.email === userData.email
@@ -60,9 +63,58 @@ function updateCartCount() {
 // Función para actualizar la visualización del carrito
 function updateCartDisplay() {
   const cartItemsContainer = document.getElementById("cartItemsContainer");
-  const checkoutButton = document.getElementById("checkoutButton"); // Obtener el botón de checkout
-  cartItemsContainer.innerHTML = ""; // Limpiar el contenedor
+  const checkoutButton = document.getElementById("checkoutButton"); // Agregamos la referencia al botón
+  if (!cartItemsContainer) return; // Verificar que el contenedor existe
 
+  const userData = JSON.parse(localStorage.getItem("user-login"));
+  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
+  // Limpiar el contenedor antes de agregar elementos nuevos
+  cartItemsContainer.innerHTML = "";
+
+  if (userData) {
+    const matchedUser = existingUsers.find(
+      (user) => user.email === userData.email
+    );
+    if (matchedUser && matchedUser.cart) {
+      if (matchedUser.cart.length === 0) {
+        cartItemsContainer.innerText = "El carrito está vacío.";
+        checkoutButton.classList.add("d-none"); // Ocultar el botón si el carrito está vacío
+      } else {
+        matchedUser.cart.forEach((item, index) => {
+          // Crear un div para el elemento del carrito
+          const itemElement = document.createElement("div");
+          itemElement.classList.add("cart-item");
+          itemElement.innerText = `${item.name} - $${item.price}`;
+
+          // Crear un botón de "Eliminar"
+          const deleteButton = document.createElement("button");
+          deleteButton.innerText = "Eliminar";
+          deleteButton.classList.add("delete-button");
+
+          // Agregar un evento al botón de "Eliminar"
+          deleteButton.addEventListener("click", () => {
+            removeCartItem(index);
+          });
+
+          // Agregar el botón al elemento del carrito
+          itemElement.appendChild(deleteButton);
+          cartItemsContainer.appendChild(itemElement);
+        });
+        checkoutButton.classList.remove("d-none"); // Mostrar el botón si hay productos en el carrito
+      }
+    } else {
+      cartItemsContainer.innerText = "Inicia sesión para ver tu carrito.";
+      checkoutButton.classList.add("d-none"); // Ocultar el botón si no hay usuario logueado
+    }
+  } else {
+    cartItemsContainer.innerText = "Inicia sesión para ver tu carrito.";
+    checkoutButton.classList.add("d-none"); // Ocultar el botón si no hay usuario logueado
+  }
+}
+
+// Función para eliminar un producto del carrito
+function removeCartItem(index) {
   const userData = JSON.parse(localStorage.getItem("user-login"));
   const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
@@ -70,26 +122,21 @@ function updateCartDisplay() {
     const matchedUser = existingUsers.find(
       (user) => user.email === userData.email
     );
+    if (matchedUser && matchedUser.cart) {
+      // Eliminar el producto del carrito basado en el índice
+      matchedUser.cart.splice(index, 1);
 
-    if (matchedUser && matchedUser.cart && matchedUser.cart.length > 0) {
-      matchedUser.cart.forEach((item) => {
-        const itemElement = document.createElement("div");
-        itemElement.className = "cart-item";
-        itemElement.innerText = `${item.name} - USD ${item.price}`;
-        cartItemsContainer.appendChild(itemElement);
-      });
-      checkoutButton.classList.remove("d-none"); // Mostrar el botón si hay productos en el carrito
-    } else {
-      cartItemsContainer.innerHTML = "<p>No hay artículos en el carrito.</p>";
-      checkoutButton.classList.add("d-none"); // Ocultar el botón si no hay productos
+      // Guardar los cambios en localStorage
+      localStorage.setItem("users", JSON.stringify(existingUsers));
+
+      // Actualizar la visualización del carrito y el conteo
+      updateCartDisplay();
+      updateCartCount();
     }
-  } else {
-    cartItemsContainer.innerHTML = "<p>No hay artículos en el carrito.</p>"; // Mensaje si no hay usuario logueado
-    checkoutButton.classList.add("d-none"); // Ocultar el botón si no hay usuario logueado
   }
 }
 
-// Función para limpiar el carrito
+// Función para vaciar el carrito
 function clearCart() {
   const userData = JSON.parse(localStorage.getItem("user-login"));
   const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
@@ -99,12 +146,21 @@ function clearCart() {
       (user) => user.email === userData.email
     );
     if (matchedUser) {
-      matchedUser.cart = []; // Vaciar el carrito del usuario
-      localStorage.setItem("users", JSON.stringify(existingUsers)); // Actualizar la lista de usuarios en localStorage
-      updateCartDisplay(); // Actualizar la visualización del carrito
+      // Limpiar el carrito del usuario
+      matchedUser.cart = [];
+      // Actualizar localStorage
+      localStorage.setItem("users", JSON.stringify(existingUsers));
     }
   }
+
+  // Actualizar la visualización del carrito y el conteo después de vaciarlo
+  updateCartDisplay();
+  updateCartCount();
 }
+
+// Inicializar el conteo del carrito al cargar la página
+updateCartCount();
+updateCartDisplay();
 
 // Inicializar la visualización del carrito y el conteo al cargar la página
 document.addEventListener("DOMContentLoaded", function () {
