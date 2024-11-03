@@ -8,7 +8,7 @@ body {
 }
 
 #particles-js {
-  position: fixed;
+  position: absolute;
   width: 100%;
   height: 100%; /* Cambia esto si quieres que sea mayor */
   z-index: 1; /* Esto permite que tu contenido se muestre encima */
@@ -142,10 +142,15 @@ article {
 }
 
 .accordion-body {
-  background-color: rgba(255, 255, 255, 0.1);
-  color: #e0e0e0;
+  background-color: rgba(28, 28, 112, 0.9); /* Fondo semi-transparente oscuro */
+  color: white; /* Color del texto en el cuerpo del acordeón */
   padding: 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
+  transition: background-color 0.3s ease; /* Transición para el fondo */
+}
+
+.accordion-button[aria-expanded="true"] {
+  background-color: rgba(62, 62, 146, 1); /* Color de fondo al abrir */
 }
 
 .accordion-button::after {
@@ -158,6 +163,11 @@ article {
 
 .accordion-button[aria-expanded="true"]::after {
   transform: rotate(180deg);
+}
+
+.accordion-body p {
+  margin: 0; /* Eliminar el margen del párrafo */
+  color: #e0e0e0; /* Color del texto del párrafo */
 }
 
 .modal-content {
