@@ -1,38 +1,32 @@
-// Fetch de los datos desde el archivo JSON
+
 fetch("../data/datosReporte1.json")
   .then((response) => response.json())
   .then((data) => {
-    // SE TRAEN LOS DATOS DE REPORTE2.JSON
     const provincias = data.provincias;
 
-    // Extraer datos relevantes
     const nombres = provincias.map((p) => p.nombre);
     const poblaciones = provincias.map((p) => p.poblacion);
     const pbi = provincias.map((p) => p.pbi_millones_usd);
     const cantidadMunicipios = provincias.map((p) => p.cantidad_municipios);
     const sectoresEconomicos = provincias.map((p) => p.sectores_economicos);
 
-    // Obtener contextos de los gráficos
     const ctxBar = document.getElementById("myChart").getContext("2d");
     const ctxDoughnut = document
       .getElementById("myDoughnutChart")
       .getContext("2d");
     const ctxPolar = document.getElementById("myPolarChart").getContext("2d");
 
-    // Función para mostrar los sectores económicos
     function displaySectors(sectors) {
       const sectorsContainer = document.getElementById("economic-sectors");
-      sectorsContainer.innerHTML = ""; // Limpiar el contenedor
+      sectorsContainer.innerHTML = "";
 
-      // Crear un título h6
       const titleElement = document.createElement("h6");
       titleElement.innerText =
         "Sectores económicos principales de la región seleccionada";
-      sectorsContainer.appendChild(titleElement); // Agregar el título al contenedor
+      sectorsContainer.appendChild(titleElement);
 
-      console.log("Sectores económicos a mostrar:", sectors); // Verificar qué sectores se están pasando
+      console.log("Sectores económicos a mostrar:", sectors);
 
-      // Crear un elemento de lista para cada sector
       sectors.forEach((sector) => {
         const sectorElement = document.createElement("div");
         sectorElement.innerText = sector;
@@ -40,7 +34,7 @@ fetch("../data/datosReporte1.json")
       });
     }
 
-    // Configuración del gráfico de barras
+    // CONFIG GRAFICO DE BARRAS
     const configBar = {
       type: "bar",
       data: {
@@ -82,7 +76,7 @@ fetch("../data/datosReporte1.json")
       },
     };
 
-    // Configuración del gráfico de doughnut
+    // GRAFICO DOUGHNUT
     const configDoughnut = {
       type: "doughnut",
       data: {
@@ -123,7 +117,7 @@ fetch("../data/datosReporte1.json")
       },
     };
 
-    // Configuración del gráfico polar
+    // GRAFICO POLAR
     const configPolar = {
       type: "polarArea",
       data: {
@@ -163,12 +157,12 @@ fetch("../data/datosReporte1.json")
       },
     };
 
-    // Inicializar los gráficos
+    // INICIALIZAR LOS GRAFICOS
     const myBarChart = new Chart(ctxBar, configBar);
     const myDoughnutChart = new Chart(ctxDoughnut, configDoughnut);
     const myPolarChart = new Chart(ctxPolar, configPolar);
 
-    // Crear botones dinámicamente
+    // INSERCIÓN DE BOTONES
     const buttonsContainer = document.getElementById("buttons");
     const selectedProvincias = new Set();
 
@@ -178,10 +172,10 @@ fetch("../data/datosReporte1.json")
       button.onclick = () => {
         if (selectedProvincias.has(nombre)) {
           selectedProvincias.delete(nombre);
-          button.classList.remove("active"); // Remove selected class
+          button.classList.remove("active"); 
         } else {
           selectedProvincias.add(nombre);
-          button.classList.add("active"); // Add selected class
+          button.classList.add("active"); 
         }
         updateCharts(
           myBarChart,
@@ -198,7 +192,7 @@ fetch("../data/datosReporte1.json")
       buttonsContainer.appendChild(button);
     });
 
-    // Función para actualizar los gráficos
+    // INICIALIZAR LOS GRÁFICOS
     function updateCharts(
       barChart,
       doughnutChart,
@@ -210,9 +204,9 @@ fetch("../data/datosReporte1.json")
       sectoresData,
       selected
     ) {
-      // Si no hay provincias seleccionadas
+   
       if (selected.size === 0) {
-        // Mostrar todos los datos
+    
         barChart.data.labels = labels;
         barChart.data.datasets[0].data = populationData;
 
@@ -222,10 +216,10 @@ fetch("../data/datosReporte1.json")
         polarChart.data.labels = labels;
         polarChart.data.datasets[0].data = municipiosData;
 
-        // No mostrar sectores económicos si no hay selección
-        displaySectors([]); // Pasar un array vacío
+ 
+        displaySectors([]); 
       } else {
-        // Filtrar los datos según las provincias seleccionadas
+       
         const filteredPopulationData = populationData.filter((_, index) =>
           selected.has(labels[index])
         );
@@ -236,7 +230,7 @@ fetch("../data/datosReporte1.json")
           selected.has(labels[index])
         );
         const filteredLabels = labels.filter((label) => selected.has(label));
-        const filteredSectors = new Set(); // Usar un Set para evitar duplicados
+        const filteredSectors = new Set(); 
 
         filteredLabels.forEach((label) => {
           const index = labels.indexOf(label);
@@ -252,11 +246,11 @@ fetch("../data/datosReporte1.json")
         polarChart.data.labels = filteredLabels;
         polarChart.data.datasets[0].data = filteredMunicipiosData;
 
-        // Mostrar los sectores económicos filtrados
-        displaySectors(Array.from(filteredSectors)); // Convertir Set a Array
+ 
+        displaySectors(Array.from(filteredSectors)); 
       }
 
-      // Actualizar todos los gráficos
+      // ACTUALIZAR LOS GRÁFICOS
       barChart.update();
       doughnutChart.update();
       polarChart.update();

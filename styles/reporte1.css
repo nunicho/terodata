@@ -2,7 +2,7 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background-color: #f4f4f4;
+  background: linear-gradient(to right, #6a11cb, #2575fc); 
 }
 
 #buttons {
@@ -16,28 +16,38 @@ button {
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #0056b3; /* Color de fondo normal */
-  color: white; /* Color de texto normal */
+  background-color: #0056b3; 
+  color: white; 
+  transition: background-color 0.3s ease, transform 0.2s; 
 }
 
-/* Estilo para botones activos */
 button.active {
-  background-color: white; /* Color de fondo blanco para el botón activo */
-  color: #0056b3; /* Color de texto azul para mejor contraste */
-  border: 2px solid #004494; /* Un borde más oscuro para el botón activo */
+  background-color: white; 
+  color: #0056b3; 
+  border: 2px solid #004494; 
 }
 
 button:hover {
   background-color: #5a9bd4; 
+  transform: scale(1.05); 
 }
 
 .chart-container {
-  overflow-x: auto; /* Permite el scroll horizontal */
-  height: 400px; /* Define la altura del contenedor */
-  overflow-y: hidden; /* Evita el scroll vertical */
+  overflow-x: auto; 
+  height: 400px; 
+  overflow-y: hidden; 
+  border-radius: 8px; 
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); 
+  background-color: white; 
+  margin: 15px; 
 }
 
 #myChart {
-  width: 1200px; /* Establece un ancho fijo mayor que el contenedor */
-  height: 100% !important; /* Asegura que la altura ocupe todo el contenedor */
+  width: 100%; 
+  height: 100% !important; 
+}
+
+
+.container > div {
+  margin-bottom: 20px;
 }
