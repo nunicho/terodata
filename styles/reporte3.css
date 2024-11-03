@@ -3,7 +3,8 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background-color: #f4f4f4;
+  /* Fondo con gradiente */
+    background: linear-gradient(to right, #dacb7b, #f7c985); /* Gradiente de fondo */
 }
 
 .container {
