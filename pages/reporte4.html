@@ -3,7 +3,7 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <!-- Bootstrap CSS -->
+
   <link
     rel="stylesheet"
     href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css"
@@ -11,32 +11,33 @@
   <link rel="stylesheet" href="../styles/reporte4.css">
   <title>Reporte 4 - Planetas</title>
   <style>
-    /* Ajustes para el canvas del gráfico */
+ 
     #bubbleChart {
-      max-width: 100%; /* Asegura que el canvas no exceda el contenedor */
-      height: 400px;   /* Ajusta la altura deseada */
+      max-width: 100%; 
+      height: 400px;   
     }
   </style>
 </head>
 <body>
   <div id="navbar-container"></div>
   <div class="container mt-5">
-    <h1 class="text-center mb-4">Gráfico de Planetas</h1>
+    <h1 class="text-center mb-4">El sistema solar y sus planetas</h1>
     <p class="text-center mb-4">
-      Este gráfico muestra la distribución de los planetas del sistema solar según sus características.
+     Este gráfico ilustra la distribución de los planetas del sistema solar en función de sus características. Es importante destacar que cada esfera representa un planeta y sus tamaños están a escala, manteniendo las proporciones relativas entre ellos. El punto (0,0) en el gráfico representa la posición del Sol, actuando como el centro del sistema solar en esta visualización.
+
+
     </p>
 
     <div class="row">
-      <!-- Botones ocupan 4 columnas en pantallas grandes y 12 en medianas y pequeñas -->
       <div class="col-lg-2 col-md-12">
         <div class="text-center mb-4" id="buttonsPlanets">
-          <!-- Los botones se generarán dinámicamente -->
+    
         </div>
       </div>
-      <!-- Gráfico ocupa 8 columnas en pantallas grandes y 12 en medianas y pequeñas -->
+    
       <div class="col-lg-10 col-md-12 mb-4">
         <div class="text-center">
-          <canvas id="bubbleChart"></canvas> <!-- El ancho y alto se controlan con CSS -->
+          <canvas id="bubbleChart"></canvas> 
         </div>
       </div>
     </div>
