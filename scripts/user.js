@@ -58,72 +58,36 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
 
 function updateNavbar() {
   const userData = JSON.parse(localStorage.getItem("user-login"));
-  const navbarNav = document.getElementById("navbarNav");
+  const loginNavItem = document.getElementById("login-nav-item");
+  const registerNavItem = document.getElementById("register-nav-item");
 
   if (userData) {
-    navbarNav.innerHTML = `
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#testimonios">Testimonios</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#ejemplos">Ejemplos</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#shop">Shop</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal" id="cart-link">
-                <i class="bi bi-cart"></i>
-                <span id="cart-count" class="badge bg-secondary">${userData.cart.length}</span>
-            </a>
-            </li>
-            <li class="nav-item">
-            <span class="nav-link">Bienvenido, ${userData.name}</span>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#" id="logout">Cerrar Sesión</a>
-            </li>
-        </ul>
-        `;
+    // Si el usuario está logueado, ocultar los elementos de inicio de sesión y registro
+    loginNavItem.style.display = "none";
+    registerNavItem.style.display = "none";
 
-    document.getElementById("logout").addEventListener("click", () => {
+    // Mostrar bienvenida y cerrar sesión
+    const welcomeItem = document.createElement("li");
+    welcomeItem.className = "nav-item";
+    welcomeItem.innerHTML = `<span class="nav-link">Bienvenido, ${userData.name}</span>`;
+
+    const logoutItem = document.createElement("li");
+    logoutItem.className = "nav-item";
+    logoutItem.innerHTML = `<a class="nav-link" href="#" id="logout">Cerrar Sesión</a>`;
+
+    const navbarNav = document.getElementById("navbarNav").querySelector("ul");
+    navbarNav.appendChild(welcomeItem);
+    navbarNav.appendChild(logoutItem);
+
+    logoutItem.addEventListener("click", () => {
       localStorage.removeItem("user-login");
       updateNavbar();
       location.reload();
     });
   } else {
-    navbarNav.innerHTML = `
-        <ul class="navbar-nav ml-auto">
-            <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#testimonios">Testimonios</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#ejemplos">Ejemplos</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#shop">Shop</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#cartModal" id="cart-link">
-                <i class="bi bi-cart"></i>
-                <span id="cart-count" class="badge bg-secondary">0</span>
-            </a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#loginModal">Iniciar Sesión</a>
-            </li>
-            <li class="nav-item">
-            <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#registerModal">Registrarse</a>
-            </li>
-        </ul>
-        `;
+    // Si el usuario no está logueado, asegurarse de que los elementos de inicio de sesión y registro estén visibles
+    loginNavItem.style.display = "block";
+    registerNavItem.style.display = "block";
   }
 }
 
