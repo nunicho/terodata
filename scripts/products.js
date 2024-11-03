@@ -1,9 +1,3 @@
-function addToCart(quantity, price) {
-  // Lógica para agregar al carrito
-  console.log(`Agregado al carrito: ${quantity} a USD ${price}`);
-}
-
-// Cargar productos desde el archivo JSON
 fetch("../data/products.json")
   .then((response) => {
     if (!response.ok) {
@@ -15,15 +9,22 @@ fetch("../data/products.json")
     const productList = document.getElementById("product-list");
     products.forEach((product) => {
       const productCard = document.createElement("div");
-      productCard.className = "col-md-4 mb-3"; // Añadir margen inferior para las tarjetas
+      productCard.className = "col-md-4 mb-3";
       productCard.innerHTML = `
-        <div class="card">
+        <div class="card text-center">  <!-- Agregamos text-center aquí -->
           <div class="card-body">
             <h5 class="card-title">${product.title}</h5>
             <p class="card-text">${product.description}</p>
-            <button class="btn btn-primary" onclick="addToCart('${product.quantity}', ${product.price})">
+            <button class="btn btn-primary" onclick="addToCart('${
+              product.quantity
+            }', ${product.price})">
               Agregar al carrito
             </button>
+            ${
+              product.isFeatured
+                ? '<span class="badge bg-warning">Destacado</span>'
+                : ""
+            } <!-- Badge para producto destacado -->
           </div>
         </div>
       `;

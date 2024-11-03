@@ -45,6 +45,17 @@ article {
   gap: 1rem;
 }
 
+.badge {
+  padding: 0.5em 0.75em;
+  border-radius: 1em;
+  font-size: 0.9em;
+}
+
+.badge.bg-warning {
+  background-color: #ffc107; /* Color de fondo del badge */
+  color: #212529; /* Color del texto del badge */
+}
+
 @media (min-width: 768px) {
   .comentarios-container {
     grid-template-columns: repeat(2, 1fr); /* Dos columnas para tabletas */

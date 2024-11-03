@@ -4,20 +4,23 @@
     "title": "Pack de 5 tableros a USD 10",
     "description": "Ideal para proyectos pequeños.",
     "price": 10,
-    "quantity": "5 tableros"
+    "quantity": "5 tableros",
+    "isFeatured": false
   },
   {
     "id": 2,
     "title": "Pack de 10 tableros a USD 15",
     "description": "Perfecto para equipos en crecimiento.",
     "price": 15,
-    "quantity": "10 tableros"
+    "quantity": "10 tableros",
+    "isFeatured": true 
   },
   {
     "id": 3,
     "title": "Pack de 20 tableros a USD 20",
     "description": "La mejor opción para grandes proyectos.",
     "price": 20,
-    "quantity": "20 tableros"
-  }    
+    "quantity": "20 tableros",
+    "isFeatured": false
+  }
 ]
