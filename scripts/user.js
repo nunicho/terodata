@@ -3,15 +3,31 @@ const usersKey = "users";
 document.getElementById("registerForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const name = document.getElementById("registerName").value;
-  const email = document.getElementById("registerEmail").value;
+  const name = document.getElementById("registerName").value.trim();
+  const email = document.getElementById("registerEmail").value.trim();
   const password = document.getElementById("registerPassword").value;
+
+  // Validaciones
+  if (!name || !email || !password) {
+    alert("Todos los campos son obligatorios.");
+    return;
+  }
+
+  if (name.length > 20) {
+    alert("El nombre no debe superar los 20 caracteres.");
+    return;
+  }
+
+  if (password.length < 5) {
+    alert("La contraseña debe tener al menos 5 caracteres.");
+    return;
+  }
 
   const existingUsers = JSON.parse(localStorage.getItem(usersKey)) || [];
 
   const existingUser = existingUsers.find((user) => user.email === email);
   if (existingUser) {
-    document.getElementById("message").innerText = "El usuario ya existe.";
+    alert("El usuario ya existe.");
     return;
   }
 
@@ -28,8 +44,14 @@ document.getElementById("registerForm").addEventListener("submit", (e) => {
 document.getElementById("loginForm").addEventListener("submit", (e) => {
   e.preventDefault();
 
-  const email = document.getElementById("loginEmail").value;
+  const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value;
+
+  // Validaciones
+  if (!email || !password) {
+    alert("Todos los campos son obligatorios.");
+    return;
+  }
 
   const existingUsers = JSON.parse(localStorage.getItem(usersKey)) || [];
 
@@ -52,7 +74,7 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
     // Recargar la página para actualizar el contenido del carrito
     location.reload();
   } else {
-    document.getElementById("message").innerText = "Credenciales incorrectas.";
+    alert("Credenciales incorrectas."); // Alert en caso de credenciales incorrectas
   }
 });
 
