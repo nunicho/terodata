@@ -29,6 +29,7 @@ function addToCart(productName, productPrice) {
     matchedUser.cart.push(cartItem);
     localStorage.setItem("users", JSON.stringify(existingUsers)); // Actualizar la lista de usuarios en localStorage
 
+    // Actualizar el conteo y la visualización del carrito después de agregar un producto
     updateCartCount();
     updateCartDisplay();
   } else {
@@ -38,8 +39,23 @@ function addToCart(productName, productPrice) {
 
 // Función para actualizar el conteo de artículos en el carrito
 function updateCartCount() {
+  const userData = JSON.parse(localStorage.getItem("user-login"));
+  const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
+
   const cartCount = document.getElementById("cart-count");
-  cartCount.innerText = cart.length;
+  if (userData) {
+    // Verificar si userData no es null
+    const matchedUser = existingUsers.find(
+      (user) => user.email === userData.email
+    );
+    if (matchedUser && matchedUser.cart) {
+      cartCount.innerText = matchedUser.cart.length; // Mostrar la cantidad de artículos en el carrito del usuario
+    } else {
+      cartCount.innerText = 0; // Si no hay carrito, mostrar 0
+    }
+  } else {
+    cartCount.innerText = 0; // Si no hay usuario logueado, mostrar 0
+  }
 }
 
 // Función para actualizar la visualización del carrito
@@ -50,21 +66,30 @@ function updateCartDisplay() {
   // Solo se puede mostrar el carrito si el usuario está autenticado
   const userData = JSON.parse(localStorage.getItem("user-login"));
   const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
-  const matchedUser = existingUsers.find(
-    (user) => user.email === userData.email
-  );
 
-  if (matchedUser && matchedUser.cart.length > 0) {
-    matchedUser.cart.forEach((item) => {
-      const itemElement = document.createElement("div");
-      itemElement.className = "cart-item";
-      itemElement.innerText = `${item.name} - USD ${item.price}`;
-      cartItemsContainer.appendChild(itemElement);
-    });
+  if (userData) {
+    // Verificar si userData no es null
+    const matchedUser = existingUsers.find(
+      (user) => user.email === userData.email
+    );
+
+    if (matchedUser && matchedUser.cart && matchedUser.cart.length > 0) {
+      matchedUser.cart.forEach((item) => {
+        const itemElement = document.createElement("div");
+        itemElement.className = "cart-item";
+        itemElement.innerText = `${item.name} - USD ${item.price}`;
+        cartItemsContainer.appendChild(itemElement);
+      });
+    } else {
+      cartItemsContainer.innerHTML = "<p>No hay artículos en el carrito.</p>";
+    }
   } else {
-    cartItemsContainer.innerHTML = "<p>No hay artículos en el carrito.</p>";
+    cartItemsContainer.innerHTML = "<p>No hay artículos en el carrito.</p>"; // Mensaje si no hay usuario logueado
   }
 }
 
-// Inicializar la visualización del carrito al cargar la página
-document.addEventListener("DOMContentLoaded", updateCartDisplay);
+// Inicializar la visualización del carrito y el conteo al cargar la página
+document.addEventListener("DOMContentLoaded", function () {
+  updateCartDisplay();
+  updateCartCount(); // Asegúrate de llamar a esta función aquí también
+});
