@@ -11,15 +11,13 @@
       rel="stylesheet"
       href="https://cdn.jsdelivr.net/npm/bootstrap-icons/font/bootstrap-icons.css"
     />
-
     <link rel="stylesheet" href="styles/comentar.css" />
     <link rel="stylesheet" href="../styles/index.css" />
     <title>Terodata</title>
   </head>
   <body>
-    <div id="particles-js">     
-    </div>
-    <nav class="navbar navbar-expand-lg navbar-light bg-light ">
+    <div id="particles-js"></div>
+    <nav class="navbar navbar-expand-lg navbar-light bg-light">
       <a class="navbar-brand" href="index.html">Terodata</a>
       <button
         class="navbar-toggler"
@@ -33,19 +31,23 @@
         <span class="navbar-toggler-icon"></span>
       </button>
       <div class="collapse navbar-collapse" id="navbarNav">
-        <ul class="navbar-nav ml-auto">
-          <li class="nav-item">
-            <a class="nav-link" href="index.html">Inicio</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#testimonios">Testimonios</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#ejemplos">Ejemplos</a>
-          </li>
-          <li class="nav-item">
-            <a class="nav-link" href="#shop">Shop</a>
-          </li>
+        <ul class="navbar-nav ms-auto">
+
+
+        <li class="nav-item">
+    <a class="nav-link" href="#tituloInicio">Inicio</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#tituloEjemplos">Ejemplos</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#tituloTestimonios">Testimonios</a>
+</li>
+<li class="nav-item">
+    <a class="nav-link" href="#tituloShop">Shop</a>
+</li>
+
+
           <li class="nav-item">
             <a
               class="nav-link"
@@ -80,32 +82,35 @@
       </div>
     </nav>
 
-    <article class="container">
+    <article id="tituloInicio" class="container">
       <h1>Tus datos,</h1>
-      <br/>
+      <br />
       <h1>bien</h1>
-      <br/>
+      <br />
       <h1>bien presentados.</h1>
     </article>
 
-    
     <article id="carousel" class="container"></article>
 
-    <article id="tituloEjemplos" class="container text-center"> <h3> Con tus datos preparamos el tablero que necesites.</h3>  </article>
-    
-   <article id="accordion-container" class="container"></article>
-    
-
-    <article id="tituloTestimonios" class="container text-center"> <h3> Empresarios exitosos que confiaron en nosotros.</h3>  </article>
-
-    <article class="container">
-      <div id="seguidoresParrafoContenedor" class=" row"></div>
+    <article id="tituloEjemplos" class="container text-center">
+      <h3> Con tus datos preparamos el tablero que necesites.</h3>
     </article>
 
+    <article id="accordion-container" class="container"></article>
 
-     <article id="tituloShop" class="container text-center"> <h3> Adquiere un pack y envíanos la información. Nosotros haremos el resto.</h3>  </article>
-    <article class="container mt-5" >
-      <div id="product-list"  class="row"></div>
+    <article id="tituloTestimonios" class="container text-center">
+      <h3> Empresarios exitosos que confiaron en nosotros.</h3>
+    </article>
+
+    <article class="container">
+      <div id="seguidoresParrafoContenedor" class="row"></div>
+    </article>
+
+    <article id="tituloShop" class="container text-center">
+      <h3> Adquiere un pack y envíanos la información. Nosotros haremos el resto.</h3>
+    </article>
+    <article class="container mt-5">
+      <div id="product-list" class="row"></div>
     </article>
 
     <!-- Modal del Carrito -->
@@ -172,9 +177,7 @@
           <div class="modal-body">
             <form id="loginForm">
               <div class="mb-3">
-                <label for="loginEmail" class="form-label"
-                  >Correo electrónico</label
-                >
+                <label for="loginEmail" class="form-label">Correo electrónico</label>
                 <input
                   type="email"
                   class="form-control"
@@ -231,9 +234,7 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="registerEmail" class="form-label"
-                  >Correo electrónico</label
-                >
+                <label for="registerEmail" class="form-label">Correo electrónico</label>
                 <input
                   type="email"
                   class="form-control"
@@ -242,9 +243,7 @@
                 />
               </div>
               <div class="mb-3">
-                <label for="registerPassword" class="form-label"
-                  >Contraseña</label
-                >
+                <label for="registerPassword" class="form-label">Contraseña</label>
                 <input
                   type="password"
                   class="form-control"
@@ -263,8 +262,6 @@
 
     <script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
-     
-    </script>
     <script src="scripts/commentary.js"></script>
     <script src="scripts/carousel.js"></script>
     <script src="scripts/products.js"></script>
@@ -272,6 +269,25 @@
     <script src="scripts/user.js"></script>
     <script src="scripts/accordion.js"></script>
     <script src="scripts/generales/particles-js.js"></script>
-    
+   <script>
+    document.addEventListener('DOMContentLoaded', function() {
+        // Seleccionar todos los enlaces de navegación
+        document.querySelectorAll('.nav-link').forEach(link => {
+            link.addEventListener('click', function(e) {
+                // Obtener el ID de destino desde el href
+                const targetId = this.getAttribute('href');
+                const targetElement = document.querySelector(targetId);
+
+                // Verificar si el elemento de destino existe
+                if (targetElement) {
+                    e.preventDefault(); // Prevenir el comportamiento predeterminado del enlace
+                    targetElement.scrollIntoView({ behavior: 'smooth' });
+                } else {
+                    console.warn(`No se encontró el elemento con el ID: ${targetId}`);
+                }
+            });
+        });
+    });
+</script>
   </body>
 </html>
