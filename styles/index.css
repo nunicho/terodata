@@ -8,9 +8,10 @@ body {
 }
 
 #particles-js {
-  position: absolute;
+  position: fixed;
   width: 100%;
-  height: 150vh;
+  height: 100%; /* Cambia esto si quieres que sea mayor */
+  z-index: 1; /* Esto permite que tu contenido se muestre encima */
 }
 
 .carousel {

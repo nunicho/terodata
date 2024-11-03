@@ -1,5 +1,6 @@
 particlesJS("particles-js", {
   particles: {
+    
     number: {
       value: 80,
       density: {
