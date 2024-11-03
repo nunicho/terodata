@@ -1,4 +1,6 @@
 document.addEventListener("DOMContentLoaded", function () {
+  const accordionContainer = document.querySelector("#accordion-container");
+
   const accordionHTML = `
     <div class="accordion" id="accordionServicios">
       <div class="accordion-item">
@@ -96,59 +98,12 @@ document.addEventListener("DOMContentLoaded", function () {
           </div>
         </div>
       </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseFive"
-            aria-expanded="false"
-            aria-controls="collapseFive"
-          >
-            Tableros adicionales
-          </button>
-        </h2>
-        <div
-          id="collapseFive"
-          class="accordion-collapse collapse"
-          data-bs-parent="#accordionServicios"
-        >
-          <div class="accordion-body">
-            <a href="./pages/reporte5.html">Ver Reporte Adicional</a>
-          </div>
-        </div>
-      </div>
-
-      <div class="accordion-item">
-        <h2 class="accordion-header">
-          <button
-            class="accordion-button collapsed"
-            type="button"
-            data-bs-toggle="collapse"
-            data-bs-target="#collapseSix"
-            aria-expanded="false"
-            aria-controls="collapseSix"
-          >
-            Reportes Corporativos
-          </button>
-        </h2>
-        <div
-          id="collapseSix"
-          class="accordion-collapse collapse"
-          data-bs-parent="#accordionServicios"
-        >
-          <div class="accordion-body">
-            <a href="./pages/reporte6.html">Ver Reporte Corporativo</a>
-          </div>
-        </div>
-      </div>
     </div>
   `;
 
-  const accordionContainer = document.getElementById("accordion-container");
   if (accordionContainer) {
     accordionContainer.innerHTML = accordionHTML;
+  } else {
+    console.error("No se encontró el contenedor del acordeón.");
   }
 });

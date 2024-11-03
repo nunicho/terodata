@@ -1,31 +1,174 @@
-  body {
-            margin: 0;
-            overflow: hidden; /* Evitar el scroll */
-        }
+body {
+  margin: 0;
+
+  background: linear-gradient(to right, #121341, #2d2da3, #5f6ca7),
+    rgba(0, 0, 0, 0.8);
+  color: white;
+  padding-top: 60px;
+}
+
+#particles-js {
+  position: absolute;
+  width: 100%;
+  height: 150vh;
+}
+
+.carousel {
+  max-width: 100vw;
+  margin: 0 auto;
+  overflow: hidden;
+}
+
+.carousel-inner {
+  width: 100%;
+}
+
+.carousel-inner img {
+  width: 100%;
+  height: auto;
+  max-height: 300px;
+  object-fit: cover;
+}
+
+article {
+  background-color: rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  padding: 20px;
+  margin: 20px 0;
+}
 
 
-        #particles-js {
-            position: absolute;
-            width: 100%;
-            height: 100vh;
-        }
 
 .comentarios-container {
-  display: grid;
-  grid-template-columns: 1fr; /* Una columna en dispositivos pequeños */
-  gap: 1rem; /* Espacio opcional entre los cuadros */
+  grid-template-columns: repeat(1, 1fr);
+  gap: 1rem;
 }
 
-/* Pantallas medianas (tabletas, etc.): dos columnas */
 @media (min-width: 768px) {
   .comentarios-container {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas */
+    grid-template-columns: repeat(2, 1fr); /* Dos columnas para tabletas */
   }
 }
 
-/* Pantallas grandes (laptops, etc.): tres columnas */
 @media (min-width: 992px) {
   .comentarios-container {
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas */
+    grid-template-columns: repeat(3, 1fr); /* Tres columnas para pantallas grandes */
   }
+}
+
+/* Agrega un estilo de borde y sombra para mejorar la visualización */
+.comentario {
+  border: 1px solid #e0e0e0; /* Borde gris claro */
+  border-radius: 8px; /* Bordes redondeados */
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
+  transition: transform 0.2s; /* Transición suave al hacer hover */
+}
+
+.comentario:hover {
+  transform: scale(1.02); /* Agrandar ligeramente al pasar el mouse */
+}
+
+/* Estilos para el spinner */
+.spinner {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100%;
+}
+
+.spinner div {
+  background: #007bff; /* Color azul para el spinner */
+  width: 10px;
+  height: 35px;
+  margin: 2px;
+  animation: stretchdelay 1.2s infinite ease-in-out;
+}
+
+/* Animación del spinner */
+@keyframes stretchdelay {
+  0%, 40%, 100% {
+    transform: scaleY(0.4);
+  }
+  20% {
+    transform: scaleY(1.0);
+  }
+}
+
+.navbar {
+  background: linear-gradient(
+    to right,
+    rgba(10, 10, 48, 0.6),
+    rgba(28, 28, 112, 0.6),
+    rgba(62, 62, 146, 0.6)
+  );
+  position: fixed;
+  width: 100%;
+  z-index: 1000;
+  color: white;
+  backdrop-filter: blur(5px);
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  border-bottom: 1px solid rgba(255, 255, 255, 0.2);
+  margin: 0;
+  top: 0;
+}
+
+.nav-link {
+  color: white;
+  transition: color 0.3s ease;
+}
+
+.nav-link:hover {
+  color: #ffcc00;
+}
+
+.accordion {
+  border: none;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.accordion-button {
+  background-color: rgba(28, 28, 112, 0.8);
+  color: white;
+  border: none;
+  outline: none;
+  transition: background-color 0.3s ease;
+}
+
+.accordion-button:hover {
+  background-color: rgba(62, 62, 146, 1);
+}
+
+.accordion-body {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: #e0e0e0;
+  padding: 15px;
+  border-top: 1px solid rgba(255, 255, 255, 0.2);
+}
+
+.accordion-button::after {
+  font-family: "Bootstrap Icons";
+  content: "\f078";
+  font-size: 1.2rem;
+  transform: rotate(0deg);
+  transition: transform 0.3s ease;
+}
+
+.accordion-button[aria-expanded="true"]::after {
+  transform: rotate(180deg);
+}
+
+.modal-content {
+  background-color: rgba(255, 255, 255, 0.1);
+  color: white;
+}
+
+.modal-header,
+.modal-footer {
+  border: none;
+}
+
+.modal-header .btn-close {
+  color: white;
 }
