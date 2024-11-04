@@ -1,6 +1,7 @@
 document.addEventListener("DOMContentLoaded", function () {
   const navbarHTML = `
     <nav class="navbar navbar-expand-lg navbar-light bg-light">
+    <img src="../assets/logo.png" alt="Logo Terodata" style="height: 40px;">
       <a class="navbar-brand" href="../index.html">
         Terodata
       </a>
