@@ -40,8 +40,8 @@
         <p><strong>Ubicación:</strong> ${empresaGuardada.ubicacion}</p>
     `;
 
-      // Cambia el lugar donde se inserta la info de la empresa
-      const contenedor = document.getElementById("reporte-cards").parentElement; // Obtenemos el padre de 'reporte-cards'
+
+      const contenedor = document.getElementById("reporte-cards").parentElement; 
 
       contenedor.insertBefore(
         empresaInfo,

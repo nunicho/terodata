@@ -36,7 +36,7 @@ function createNavbar() {
     </nav>
   `;
 
-  // Añadir la navbar al cuerpo del documento
+  
   document.body.insertAdjacentHTML("afterbegin", navbarHTML);
 }
 

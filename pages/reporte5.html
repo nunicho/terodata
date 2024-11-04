@@ -10,29 +10,36 @@
 <body>
 <div id="navbar-container"></div>
 <div class="container">
-  <h2 class="text-center my-4">Reporte de Goles por Año</h2>
 
-  <!-- Gráfico de Goles -->
+<div class="container mb-4 d-flex align-items-center justify-content-center">
+  <img src="../assets/messi.jpg" alt="Messi" class=" rounded-image" >
+  <h1 class="mx-2">VS</h1>
+  <img src="../assets/ronaldo.jpg" alt="Cristiano Ronaldo" class="rounded-image">
+</div>
+
+  <h2 class="text-center my-4">Estadísticas de Messi y Cristiano Ronaldo</h2>
+
+ 
   <div class="mb-4">
     <h3>Goles por Año</h3>
     <canvas id="golesChart" class="w-100" height="400"></canvas>
   </div>
 
-  <!-- Fila para los gráficos agrupados -->
+
   <div class="row mb-4">
-    <!-- Gráfico de Títulos -->
+  
     <div class="col-md-4">
       <h3>Títulos</h3>
       <canvas id="myChart" class="w-100" height="400"></canvas>
     </div>
 
-    <!-- Gráfico de Premios -->
+
     <div class="col-md-4">
       <h3>Premios</h3>
       <canvas id="myChartAwards" class="w-100" height="400"></canvas>
     </div>
 
-    <!-- Gráfico de Tarjetas (Cristiano Ronaldo y Lionel Messi) -->
+
     <div class="col-md-4">
       <h3>Tarjetas</h3>
       <canvas id="myChartCards" class="w-100" height="400"></canvas>
@@ -40,6 +47,7 @@
   </div>
 </div>
 
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
 <script src="../scripts/reportes/reporte5.js"></script>
 <script src="../scripts/reportes/navbar-reportes.js"></script>

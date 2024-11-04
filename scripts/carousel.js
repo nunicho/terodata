@@ -1,5 +1,5 @@
 document.addEventListener("DOMContentLoaded", () => {
-  const carouselContainer = document.querySelector("#carousel"); // Usa # para seleccionar por ID
+  const carouselContainer = document.querySelector("#carousel"); 
 
   const carouselHTML = `
     <div id="carouselExampleSlidesOnly" class="carousel slide" data-bs-ride="carousel">

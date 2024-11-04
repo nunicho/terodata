@@ -1,0 +1,86 @@
+body {
+  font-family: Arial, sans-serif;
+  background-image: url('../assets/estadio.jpg');
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #343a40;
+  padding: 20px;
+}
+
+.container {
+  background-color: rgba(255, 255, 255, 0.8);
+  padding: 30px;
+  border-radius: 8px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+h2 {
+  color: #007bff;
+  font-weight: bold;
+}
+
+h3 {
+  margin-bottom: 10px;
+  font-size: 1.5rem;
+  color: #007bff;
+}
+
+.chart {
+  height: 200px;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+  background-color: #f8f9fa;
+}
+
+.row {
+  margin-bottom: 30px;
+}
+
+canvas {
+  max-width: 100%;
+  height: auto;
+}
+
+.mb-4 {
+  margin-bottom: 30px;
+}
+
+#navbar-container {
+  margin-bottom: 30px;
+}
+
+.text-center {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+}
+
+.rounded-image {
+  max-width: 50%;
+  height: 20%;
+  border-radius: 15px;
+}
+
+#golesChart {
+  height: 200px;
+}
+
+@media (max-width: 768px) {
+  .rounded-image {
+    max-width: 50%;
+    height: 50%;
+    border-radius: 15px;
+  }
+
+  canvas {
+    max-width: 100%;
+    height: 15%;
+  }
+}
+
+  canvas {
+    max-width: 100%;
+    height: 90%;
+  }

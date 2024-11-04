@@ -10,8 +10,8 @@ body {
 #particles-js {
   position: absolute;
   width: 100%;
-  height: 100%; /* Cambia esto si quieres que sea mayor */
-  z-index: 1; /* Esto permite que tu contenido se muestre encima */
+  height: 100%; 
+  z-index: 1; 
 }
 
 .carousel {
@@ -52,35 +52,35 @@ article {
 }
 
 .badge.bg-warning {
-  background-color: #ffc107; /* Color de fondo del badge */
-  color: #212529; /* Color del texto del badge */
+  background-color: #ffc107; 
+  color: #212529; 
 }
 
 @media (min-width: 768px) {
   .comentarios-container {
-    grid-template-columns: repeat(2, 1fr); /* Dos columnas para tabletas */
+    grid-template-columns: repeat(2, 1fr); 
   }
 }
 
 @media (min-width: 992px) {
   .comentarios-container {
-    grid-template-columns: repeat(3, 1fr); /* Tres columnas para pantallas grandes */
+    grid-template-columns: repeat(3, 1fr); 
   }
 }
 
-/* Agrega un estilo de borde y sombra para mejorar la visualización */
+
 .comentario {
-  border: 1px solid #e0e0e0; /* Borde gris claro */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); /* Sombra suave */
-  transition: transform 0.2s; /* Transición suave al hacer hover */
+  border: 1px solid #e0e0e0; 
+  border-radius: 8px; 
+  box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1); 
+  transition: transform 0.2s;
 }
 
 .comentario:hover {
-  transform: scale(1.02); /* Agrandar ligeramente al pasar el mouse */
+  transform: scale(1.02); 
 }
 
-/* Estilos para el spinner */
+
 .spinner {
   display: flex;
   justify-content: center;
@@ -89,14 +89,14 @@ article {
 }
 
 .spinner div {
-  background: #007bff; /* Color azul para el spinner */
+  background: #007bff; 
   width: 10px;
   height: 35px;
   margin: 2px;
   animation: stretchdelay 1.2s infinite ease-in-out;
 }
 
-/* Animación del spinner */
+
 @keyframes stretchdelay {
   0%, 40%, 100% {
     transform: scaleY(0.4);
@@ -153,15 +153,15 @@ article {
 }
 
 .accordion-body {
-  background-color: rgba(28, 28, 112, 0.9); /* Fondo semi-transparente oscuro */
-  color: white; /* Color del texto en el cuerpo del acordeón */
+  background-color: rgba(28, 28, 112, 0.9); 
+  color: white; 
   padding: 15px;
   border-top: 1px solid rgba(255, 255, 255, 0.2);
-  transition: background-color 0.3s ease; /* Transición para el fondo */
+  transition: background-color 0.3s ease; 
 }
 
 .accordion-button[aria-expanded="true"] {
-  background-color: rgba(62, 62, 146, 1); /* Color de fondo al abrir */
+  background-color: rgba(62, 62, 146, 1); 
 }
 
 .accordion-button::after {
@@ -177,8 +177,8 @@ article {
 }
 
 .accordion-body p {
-  margin: 0; /* Eliminar el margen del párrafo */
-  color: #e0e0e0; /* Color del texto del párrafo */
+  margin: 0; 
+  color: #e0e0e0; 
 }
 
 .modal-content {

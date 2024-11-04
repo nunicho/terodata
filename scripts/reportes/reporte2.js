@@ -79,10 +79,10 @@ function crearGraficoVacio(etiquetas) {
             color: "rgba(0, 0, 0, 0.1)",
           },
           angleLines: {
-            color: "rgba(255, 255, 255, 0.5)",
+            color: "rgba(0, 0, 0, 0.5)",
           },
           pointLabels: {
-            color: "#ffffff",
+            color: "#333333",
             font: {
               size: 14,
             },
@@ -97,7 +97,7 @@ function crearGraficoVacio(etiquetas) {
       plugins: {
         legend: {
           labels: {
-            color: "#ffffff",
+            color: "#333333",
           },
         },
       },
@@ -113,7 +113,7 @@ function toggleAlimento(alimento, boton) {
     const nuevoDataset = {
       label: alimento.nombre,
       data: obtenerEtiquetas().map((et) => alimento[et.clave] || 0),
-      backgroundColor: obtenerColorAleatorio(),
+      backgroundColor: obtenerColorAleatorio(), // Fondo semitransparente para el gráfico
       borderColor: obtenerColorBordeAleatorio(),
       borderWidth: 2,
     };

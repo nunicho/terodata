@@ -2,61 +2,74 @@ body {
   font-family: Arial, sans-serif;
   margin: 0;
   padding: 20px;
-  background: linear-gradient(to right, #6a11cb, #2575fc); /* Gradiente de fondo */
+  background-image: url("../assets/comida.jpeg");
+  background-size: cover;
+  background-position: center;
+  background-repeat: no-repeat;
+  color: #333; 
+}
+.custom-bg {
+  background-color: rgba(
+    255,
+    255,
+    255,
+    0.7
+  ); 
 }
 
-h1, p {
-  color: #333; /* Color de texto para encabezados y párrafos */
+h1,
+p {
+  color: #333;
 }
 
 #botonesAlimentos {
   margin-bottom: 20px;
-  text-align: center; /* Centrar los botones */
+  text-align: center;
 }
 
 button {
   margin: 5px;
-  padding: 8px 15px; /* Ajustar padding para mejorar el tamaño */
-  font-size: 14px; /* Tamaño de fuente ajustado */
+  padding: 8px 15px;
+  font-size: 14px;
   border: none;
   border-radius: 5px;
   cursor: pointer;
-  background-color: #0056b3; /* Color de fondo normal */
-  color: white; /* Color de texto normal */
-  transition: background-color 0.3s, transform 0.2s; /* Transición suave */
+  background-color: #0056b3;
+  color: white; 
+  transition: background-color 0.3s, transform 0.2s;
 }
 
 button.active {
-  background-color: white; /* Color de fondo blanco para el botón activo */
-  color: #0056b3; /* Color de texto azul para mejor contraste */
-  border: 2px solid #004494; /* Un borde más oscuro para el botón activo */
+  background-color: white;
+  color: #0056b3; 
+  border: 2px solid #004494;
 }
 
 button:hover {
-  background-color: #5a9bd4; 
-  transform: scale(1.05); /* Efecto de aumento al pasar el mouse */
+  background-color: #5a9bd4;
+  transform: scale(1.05);
 }
 
 .btn-limpiar {
-  background-color: #ff3d3d; /* Color de fondo para el botón limpiar */
+  background-color: #ff3d3d;
 }
 
 .btn-limpiar:hover {
-  background-color: #ff1a1a; /* Color de fondo al pasar el mouse */
+  background-color: #ff1a1a;
 }
 
 .chart-container {
-  overflow-x: auto; /* Permite el scroll horizontal */
-  height: 400px; /* Define la altura del contenedor */
-  overflow-y: hidden; /* Evita el scroll vertical */
-  border-radius: 8px; /* Bordes redondeados */
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1); /* Sombra para el contenedor */
-  background-color: white; /* Fondo blanco para el gráfico */
-  margin: 15px 0; /* Margen para el contenedor del gráfico */
-  padding: 15px; /* Espaciado interno */
+  overflow-x: auto;
+  height: 400px;
+  overflow-y: hidden;
+  border-radius: 8px;
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+  background-color: white;
+  margin: 15px 0;
+  padding: 15px;
 }
 
 #radarChart {
-  width: 100%; /* Asegura que el gráfico ocupe todo el ancho */
-  height: 100% !important; /* Asegura que la altura ocupe todo el contenedor */
+  width: 100%;
+  height: 100% !important;
 }

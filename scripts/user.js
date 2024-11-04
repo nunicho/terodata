@@ -7,7 +7,7 @@ document.getElementById("registerForm").addEventListener("submit", (e) => {
   const email = document.getElementById("registerEmail").value.trim();
   const password = document.getElementById("registerPassword").value;
 
-  // Validaciones
+
   if (!name || !email || !password) {
     alert("Todos los campos son obligatorios.");
     return;
@@ -47,7 +47,7 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
   const email = document.getElementById("loginEmail").value.trim();
   const password = document.getElementById("loginPassword").value;
 
-  // Validaciones
+
   if (!email || !password) {
     alert("Todos los campos son obligatorios.");
     return;
@@ -71,10 +71,9 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
     document.getElementById("message").innerText = "Inicio de sesión exitoso.";
     updateNavbar();
 
-    // Recargar la página para actualizar el contenido del carrito
     location.reload();
   } else {
-    alert("Credenciales incorrectas."); // Alert en caso de credenciales incorrectas
+    alert("Credenciales incorrectas."); 
   }
 });
 
@@ -84,11 +83,11 @@ function updateNavbar() {
   const registerNavItem = document.getElementById("register-nav-item");
 
   if (userData) {
-    // Si el usuario está logueado, ocultar los elementos de inicio de sesión y registro
+
     loginNavItem.style.display = "none";
     registerNavItem.style.display = "none";
 
-    // Mostrar bienvenida y cerrar sesión
+
     const welcomeItem = document.createElement("li");
     welcomeItem.className = "nav-item";
     welcomeItem.innerHTML = `<span class="nav-link">Bienvenido, ${userData.name}</span>`;
@@ -107,11 +106,11 @@ function updateNavbar() {
       location.reload();
     });
   } else {
-    // Si el usuario no está logueado, asegurarse de que los elementos de inicio de sesión y registro estén visibles
+
     loginNavItem.style.display = "block";
     registerNavItem.style.display = "block";
   }
 }
 
-// Inicializar el navbar al cargar la página
+
 updateNavbar();

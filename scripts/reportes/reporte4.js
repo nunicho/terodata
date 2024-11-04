@@ -1,22 +1,22 @@
 let bubbleChartInstance;
-const datasets = []; // Array para almacenar los datasets de planetas seleccionados
+const datasets = []; 
 
-// Función para generar un color aleatorio en formato RGBA
+
 function getRandomColor() {
   const r = Math.floor(Math.random() * 256);
   const g = Math.floor(Math.random() * 256);
   const b = Math.floor(Math.random() * 256);
-  const a = 0.5; // Transparencia (0.0 a 1.0)
+  const a = 0.5; 
   return {
     background: `rgba(${r}, ${g}, ${b}, ${a})`,
     border: `rgba(${r}, ${g}, ${b}, 1)`,
   };
 }
 
-// Función para cargar los datos desde el archivo JSON
+
 async function loadPlanetData() {
   try {
-    const response = await fetch("../data/datosReporte4.json"); // Reemplaza con la ruta a tu archivo JSON
+    const response = await fetch("../data/datosReporte4.json"); 
     if (!response.ok) throw new Error("Error al cargar los datos");
 
     const data = await response.json();
@@ -24,55 +24,55 @@ async function loadPlanetData() {
       throw new Error("El archivo JSON no contiene un array de planetas");
     }
 
-    // Crear botones dinámicos para cada planeta
+   
     createButtons(data.planetas);
 
-    // Crear el gráfico vacío al inicio
+ 
     createEmptyBubbleChart();
   } catch (error) {
     console.error("Error:", error);
   }
 }
 
-// Función para crear botones dinámicos
+
 function createButtons(planets) {
   const buttonContainer = document.getElementById("buttonsPlanets");
-  buttonContainer.innerHTML = ""; // Limpiar el contenedor antes de agregar botones
+  buttonContainer.innerHTML = ""; 
 
   planets.forEach((planet) => {
     const button = document.createElement("button");
     button.innerText = planet.nombre;
-    button.className = "btn"; // Estilo base del botón
-    button.onclick = () => togglePlanet(planet, button); // Pasar el botón como parámetro
+    button.className = "btn"; 
+    button.onclick = () => togglePlanet(planet, button); 
     buttonContainer.appendChild(button);
   });
 
-  // Crear el botón "Limpiar gráfico"
+ 
   const clearButton = document.createElement("button");
   clearButton.innerText = "Limpiar gráfico";
-  clearButton.className = "btn btn-clear"; // Asignar clase específica
-  clearButton.onclick = clearBubbleChart; // Asignar función al botón
-  buttonContainer.appendChild(clearButton); // Agregar el botón al contenedor
+  clearButton.className = "btn btn-clear"; 
+  clearButton.onclick = clearBubbleChart; 
+  buttonContainer.appendChild(clearButton); 
 }
 
-// Función para agregar o quitar un planeta del gráfico
+
 function togglePlanet(planet, button) {
-  // Verificar si el planeta ya está en el gráfico
+
   const index = datasets.findIndex(
     (dataset) => dataset.label === planet.nombre
   );
 
   if (index === -1) {
-    // Si no está, agregarlo
+
     const color = getRandomColor();
     const dataset = {
       label: planet.nombre,
       data: [
         {
-          x: planet.distancia_del_sol, // Eje X: distancia del sol
-          y: planet.diametro_orbita, // Eje Y: diámetro de órbita
-          r: planet.diametro_planeta * 10, // Tamaño de la burbuja basado en el diámetro del planeta (multiplicado para visibilidad)
-          nombre: planet.nombre, // Agregar el nombre aquí para el tooltip
+          x: planet.distancia_del_sol, 
+          y: planet.diametro_orbita, 
+          r: planet.diametro_planeta * 10, 
+          nombre: planet.nombre, 
         },
       ],
       backgroundColor: color.background,
@@ -80,18 +80,18 @@ function togglePlanet(planet, button) {
       borderWidth: 1,
     };
     datasets.push(dataset);
-    button.classList.add("active"); // Añadir clase active al botón
+    button.classList.add("active"); 
   } else {
-    // Si ya está, eliminarlo
+   
     datasets.splice(index, 1);
-    button.classList.remove("active"); // Eliminar clase active al botón
+    button.classList.remove("active"); 
   }
 
-  // Actualizar el gráfico
+  
   updateBubbleChart();
 }
 
-// Función para crear el gráfico de burbujas vacío
+
 function createEmptyBubbleChart() {
   const ctx = document.getElementById("bubbleChart").getContext("2d");
 
@@ -108,10 +108,10 @@ function createEmptyBubbleChart() {
             display: true,
             text: "Distancia del Sol (millones de km)",
           },
-          min: 0, // Mantén el valor mínimo como 0
-          max: 5000, // Ajusta el máximo a 5000 para el eje X
+          min: 0, 
+          max: 5000, 
           ticks: {
-            stepSize: 500, // Cambia el tamaño del paso si quieres más ticks
+            stepSize: 500, 
           },
         },
         y: {
@@ -120,7 +120,7 @@ function createEmptyBubbleChart() {
             text: "Diámetro de Órbita (millones de km)",
           },
           min: 0,
-          max: 5000, // Mantener el máximo en 5000 para el eje Y
+          max: 5000,
         },
       },
       plugins: {
@@ -142,10 +142,10 @@ function createEmptyBubbleChart() {
   });
 }
 
-// Función para actualizar el gráfico con los datasets seleccionados
+
 function updateBubbleChart() {
   if (bubbleChartInstance) {
-    bubbleChartInstance.destroy(); // Destruir el gráfico anterior si existe
+    bubbleChartInstance.destroy(); 
   }
   const ctx = document.getElementById("bubbleChart").getContext("2d");
 
@@ -163,9 +163,9 @@ function updateBubbleChart() {
             text: "Distancia del Sol (millones de km)",
           },
           min: 0,
-          max: 5000, // Ajustar el rango a 5000 para el eje X
+          max: 5000, 
           ticks: {
-            stepSize: 500, // Cambia el tamaño del paso si quieres más ticks
+            stepSize: 500, 
           },
         },
         y: {
@@ -174,7 +174,7 @@ function updateBubbleChart() {
             text: "Diámetro de Órbita (millones de km)",
           },
           min: 0,
-          max: 5000, // Mantener el máximo en 5000 para el eje Y
+          max: 5000, 
         },
       },
       plugins: {
@@ -196,15 +196,15 @@ function updateBubbleChart() {
   });
 }
 
-// Función para limpiar el gráfico
+
 function clearBubbleChart() {
-  datasets.length = 0; // Limpiar los datasets
+  datasets.length = 0; 
   updateBubbleChart();
 
-  // Eliminar la clase active de los botones
+ 
   const buttons = document.querySelectorAll("#buttonsPlanets button");
   buttons.forEach((button) => button.classList.remove("active"));
 }
 
-// Llamar a la función de carga de datos al inicio
+
 loadPlanetData();
