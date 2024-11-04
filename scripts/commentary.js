@@ -49,7 +49,11 @@ const consultarAPI = async () => {
 
     seguidoresCarruselContenedor.innerHTML = comentarioItems.join("");
   } catch (error) {
-    alert("No se pudo cargar la API");
+    Swal.fire({
+      title: "¿ Está bien Internet?",
+      text: "No se pudo cargar la API",
+      icon: "question",
+    });
   }
 };
 

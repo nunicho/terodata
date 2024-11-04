@@ -9,17 +9,17 @@ document.getElementById("registerForm").addEventListener("submit", (e) => {
 
 
   if (!name || !email || !password) {
-    alert("Todos los campos son obligatorios.");
+    Swal.fire("Todos los campos son obligatorios.");
     return;
   }
 
   if (name.length > 20) {
-    alert("El nombre no debe superar los 20 caracteres.");
+    Swal.fire("El nombre no debe superar los 20 caracteres.");
     return;
   }
 
   if (password.length < 5) {
-    alert("La contraseña debe tener al menos 5 caracteres.");
+    Swal.fire("La contraseña debe tener al menos 5 caracteres.");
     return;
   }
 
@@ -27,7 +27,11 @@ document.getElementById("registerForm").addEventListener("submit", (e) => {
 
   const existingUser = existingUsers.find((user) => user.email === email);
   if (existingUser) {
-    alert("El usuario ya existe.");
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "El usuario ya existe."
+    });
     return;
   }
 
@@ -49,7 +53,7 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
 
 
   if (!email || !password) {
-    alert("Todos los campos son obligatorios.");
+    Swal.fire("Todos los campos son obligatorios.");
     return;
   }
 
@@ -73,7 +77,13 @@ document.getElementById("loginForm").addEventListener("submit", (e) => {
 
     location.reload();
   } else {
-    alert("Credenciales incorrectas."); 
+  
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Credenciales incorrectas."
+     
+    });
   }
 });
 

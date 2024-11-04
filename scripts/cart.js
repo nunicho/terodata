@@ -5,8 +5,12 @@ function addToCart(productName, productPrice) {
   const userData = JSON.parse(localStorage.getItem("user-login"));
   const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
-  if (!userData) {
-    alert("Debes iniciar sesión para agregar productos al carrito.");
+  if (!userData) {    
+    Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "Debes iniciar sesión para agregar productos al carrito.",      
+    });
     return;
   }
 
@@ -25,21 +29,25 @@ function addToCart(productName, productPrice) {
 
     if (existingProduct) {
       existingProduct.quantity += 1;
-      alert(`Se ha incrementado la cantidad de ${productName}.`);
+      Swal.fire(`Se ha incrementado la cantidad de ${productName}.`);
     } else {
       matchedUser.cart.push({
         name: productName,
         price: productPrice,
         quantity: 1,
       });
-      alert(`Producto agregado al carrito: ${productName}`);
+      Swal.fire(`Producto agregado al carrito: ${productName}`);
     }
 
     localStorage.setItem("users", JSON.stringify(existingUsers));
     updateCartCount();
     updateCartDisplay();
   } else {
-    alert("No se encontró el usuario asociado al email logueado.");
+      Swal.fire({
+      icon: "error",
+      title: "Oops...",
+      text: "No se encontró el usuario asociado al email logueado."    
+    });
   }
 }
 
@@ -71,6 +79,7 @@ function updateCartCount() {
 // Función para actualizar la visualización del carrito
 function updateCartDisplay() {
   const cartItemsContainer = document.getElementById("cartItemsContainer");
+  const totalPriceContainer = document.getElementById("totalPrice");
   const checkoutButton = document.getElementById("checkoutButton");
   if (!cartItemsContainer) return;
 
@@ -78,6 +87,7 @@ function updateCartDisplay() {
   const existingUsers = JSON.parse(localStorage.getItem("users")) || [];
 
   cartItemsContainer.innerHTML = "";
+  let totalPrice = 0;
 
   if (userData) {
     const matchedUser = existingUsers.find(
@@ -87,11 +97,15 @@ function updateCartDisplay() {
       if (matchedUser.cart.length === 0) {
         cartItemsContainer.innerText = "El carrito está vacío.";
         checkoutButton.classList.add("d-none");
+        totalPriceContainer.innerText = "0.00";
       } else {
         matchedUser.cart.forEach((item, index) => {
           const itemElement = document.createElement("div");
           itemElement.classList.add("cart-item");
           itemElement.innerText = `${item.name} - $${item.price} x ${item.quantity}`;
+
+          // Calcular el total del artículo
+          totalPrice += item.price * item.quantity;
 
           const increaseButton = document.createElement("button");
           increaseButton.innerText = "+";
@@ -147,15 +161,18 @@ function updateCartDisplay() {
           itemElement.appendChild(deleteButton);
           cartItemsContainer.appendChild(itemElement);
         });
+        totalPriceContainer.innerText = totalPrice.toFixed(2);
         checkoutButton.classList.remove("d-none");
       }
     } else {
       cartItemsContainer.innerText = "Inicia sesión para ver tu carrito.";
       checkoutButton.classList.add("d-none");
+      totalPriceContainer.innerText = "0.00";
     }
   } else {
     cartItemsContainer.innerText = "Inicia sesión para ver tu carrito.";
     checkoutButton.classList.add("d-none");
+    totalPriceContainer.innerText = "0.00";
   }
 }
 
@@ -196,15 +213,14 @@ function clearCart() {
   updateCartCount();
 }
 
-updateCartCount();
-updateCartDisplay();
-
+// Inicializar el conteo y la visualización del carrito al cargar la página
 document.addEventListener("DOMContentLoaded", function () {
   updateCartDisplay();
   updateCartCount();
+
   const checkoutButton = document.getElementById("checkoutButton");
   checkoutButton.addEventListener("click", function () {
-    alert("¡Gracias por tu compra!");
+    Swal.fire("¡Gracias por tu compra!");
     clearCart();
   });
 });
