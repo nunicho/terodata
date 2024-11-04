@@ -175,6 +175,6 @@ document.getElementById("limpiar-registros").addEventListener("click", () => {
     limpiarRegistros(inputsPatrimonio, inputsResultados);
     location.reload();
   } else {
-    alert("Acción cancelada.");
+     alert("Acción cancelada.");
   }
 });

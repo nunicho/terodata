@@ -37,7 +37,7 @@ document.addEventListener("DOMContentLoaded", function () {
   botonBorrar.addEventListener("click", function () {
     const confirmacion = confirm(
       "¿Estás seguro de que deseas borrar los datos?"
-    );
+    );    
     if (confirmacion) {
       localStorage.removeItem("empresa");
       resultadoDiv.innerHTML = "";
